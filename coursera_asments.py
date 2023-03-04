@@ -1,3 +1,30 @@
+# 9.4 Write a program to read through the mbox-short.
+# txt and figure out who has sent the greatest number of mail messages.
+# The program looks for 'From ' lines and takes the second word 
+# of those lines as the person who sent the mail. The program 
+# creates a Python dictionary that maps the sender's mail 
+# address to a count of the number of times they appear in 
+# the file. After the dictionary is produced, the program 
+# reads through the dictionary using a maximum loop to find 
+# the most prolific committer.
+
+# name = input("Enter file:")
+# if len(name) < 1:
+#     name = "mbox-short.txt"
+# handle = open(name)
+
+# emaild = dict()
+# for line in handle:
+#   if line.startswith('From'):
+#     emaild[line.split()[1]] = emaild.get(line.split()[1],0)+1
+# sed = sorted(emaild.items(), key=lambda x : x[1], reverse=True) #cool asf
+# print(sed[0][0],int(sed[0][1]/2))
+    
+
+
+
+
+
 # 8.5 Open the file mbox-short.txt and read it line by line.
 # When you find a line that starts with 'From ' like the following line:
 # From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008
@@ -27,11 +54,6 @@
 #   count+=1
 
 # print("There were", count, "lines in the file with From as the first word")
-
-
-
-
-
 
 
 
