@@ -1,30 +1,31 @@
 import random
 import string
+
+
+
  
-chars = string.punctuation+string.digits+string.ascii_letters+" "
-ls = list(chars)
-key = ls.copy()
+# chars = string.punctuation+string.digits+string.ascii_letters+" "
+# ls = list(chars)
+# key = ls.copy()
 
-random.shuffle(key)
-#encrept
-mes = input('enter a message :')
-inmes =""
-for l in mes:
-    ind = ls.index(l)
-    inmes += key[ind]
+# random.shuffle(key)
+# #encrept
+# mes = input('enter a message :')
+# inmes =""
+# for l in mes:
+#     ind = ls.index(l)
+#     inmes += key[ind]
  
-print(inmes)
+# print(inmes)
 
-#decrept
-inmes = input('enter a message :')
-mes =""
-for l in inmes:
-    ind = key.index(l)
-    mes += ls[ind]
+# #decrept
+# inmes = input('enter a message :')
+# mes =""
+# for l in inmes:
+#     ind = key.index(l)
+#     mes += ls[ind]
  
-print(mes)
-
-
+# print(mes)
 
 
 
