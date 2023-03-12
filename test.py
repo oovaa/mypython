@@ -1,35 +1,62 @@
-def romanToInt(s: str) -> int:
-    val = {'I'        :     1,
-'V'      :       5,
-'X'       :      10,
-'L'        :     50,
-'C'         :    100,
-'D'          :   500,
-'M'           :  1000}
-    ans = 0
-    i=0
-    j=1
-    while j < len(s):
-      if val[s[j]]>val[s[i]]:
-          ans +=val[s[j]]-val[s[i]] 
-          j+=2
-          i+=2
-      else:
-          ans +=val[s[i]]
-          i+=1
-          j+=1
-    
-    return ans
-          
-          
-        
-    
-    
-    
-print(romanToInt("III"))
+print("omer {o} nana {n}".format(o='man',n='maman'))
 
-    
 
+
+
+# def add(a:int,c:int)->any:
+#  d = 20
+#  return a+c
+
+# print(add('8','5'))
+
+# td = dict()
+# td.update({'omer':19})
+# td.update({'nana':18})
+# td.update({'tata':15})
+# print(td)
+# td.update({'omer':33})
+# print(td.get('ss',0))
+
+# ls = list(x+10 for x in td.values() if x>17)
+#print(ls)
+   
+ 
+# class test:
+#   def __init__(self, age):
+#     self.age = age
+  
+#   def add(self)-> int:
+#       return self.age+10
+
+# omer = test(8)
+# print(test.add(omer))
+
+
+# def romanToInt(s: str) -> int:
+#     val = {'I'        :     1,
+# 'V'      :       5,
+# 'X'       :      10,
+# 'L'        :     50,
+# 'C'         :    100,
+# 'D'          :   500,
+# 'M'           :  1000}
+#     ans = 0
+#     i=0
+#     j=1
+#     while j < len(s):
+#       if val[s[j]]>val[s[i]]:
+#           ans +=val[s[j]]-val[s[i]] 
+#           j+=2
+#           i+=2
+#       else:
+#           ans +=val[s[i]]
+#           i+9=1
+#           j+=1
+    
+#     return ans
+          
+    
+# print(romanToInt("III"))
 
 
 
