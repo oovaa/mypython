@@ -1,9 +1,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 =======
 >>>>>>> 5b1d5d8 (removed merge conflicts)
+=======
+>>>>>>> d6dc66d (add rock,paper,scissors in rps.py)
 class test:
   def __init__(self, age):
     self.age = age
@@ -22,6 +25,8 @@ while expression:
 =======
 =======
 print("omer {o} nana {n}".format(o='man',n='maman'))
+=======
+>>>>>>> 80fbfeb (add rock,paper,scissors in rps.py)
 
 >>>>>>> 178573d (playing)
 >>>>>>> 5b1d5d8 (removed merge conflicts)
@@ -76,6 +81,7 @@ print(test.add(omer))
 
 # print("omer {o} nana {n}".format(o='man',n='maman'))
 
+<<<<<<< HEAD
 
 # def add(a:int,c:int)->any:
 #  d = 20
@@ -132,6 +138,8 @@ print(test.add(omer))
     
 # print(romanToInt("III"))
 
+=======
+>>>>>>> d6dc66d (add rock,paper,scissors in rps.py)
 
 # def add(a:int,c:int)->any:
 #  d = 20

@@ -21,6 +21,7 @@
 				{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"line": 171,
 =======
 					"line": 136,
@@ -31,6 +32,9 @@
 					"line": 152,
 >>>>>>> 178573d (playing)
 >>>>>>> 5b1d5d8 (removed merge conflicts)
+=======
+					"line": 152,
+>>>>>>> d6dc66d (add rock,paper,scissors in rps.py)
 					"column": 58,
 					"label": ""
 				}
