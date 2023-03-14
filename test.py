@@ -1,6 +1,25 @@
-print("omer {o} nana {n}".format(o='man',n='maman'))
 
 
+
+# import shutil
+# shutil.copy2('romeo.txt','tata.txt')
+ 
+# ff = open('romeo.txt','a')
+# ff.write('yyyyooooo\nim ommmmer')
+
+# import os
+# path = '//home//omar//pyp//bank.py'
+# if os.path.isdir(path):
+#   print('it is here')
+# else:
+#     print('it is not here')
+  
+
+# import random as r
+# ls = ['sci','paper']
+
+
+# print("omer {o} nana {n}".format(o='man',n='maman'))
 
 
 # def add(a:int,c:int)->any:
