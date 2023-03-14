@@ -19,7 +19,11 @@
 			"path": "test.py",
 			"bookmarks": [
 				{
+<<<<<<< HEAD
 					"line": 171,
+=======
+					"line": 136,
+>>>>>>> b6a78dc901bf04f76a0e4956d0ab9eb9eeb1b536
 					"column": 58,
 					"label": ""
 				}

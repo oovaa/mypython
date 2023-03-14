@@ -1,5 +1,50 @@
+<<<<<<< HEAD
+
+=======
+class test:
+  def __init__(self, age):
+    self.age = age
+  
+  def add(self)-> int:
+      return self.age+10
+
+omer = test(8)
+while expression:
+  if condition:
+    for item in range:
+        def name(args):
+          continue
+>>>>>>> b6a78dc901bf04f76a0e4956d0ab9eb9eeb1b536
+
+print(test.add(omer))
 
 
+
+# def romanToInt(s: str) -> int:
+#     val = {'I'        :     1,
+# 'V'      :       5,
+# 'X'       :      10,
+# 'L'        :     50,
+# 'C'         :    100,
+# 'D'          :   500,
+# 'M'           :  1000}
+#     ans = 0
+#     i=0
+#     j=1
+#     while j < len(s):
+#       if val[s[j]]>val[s[i]]:
+#           ans +=val[s[j]]-val[s[i]] 
+#           j+=2
+#           i+=2
+#       else:
+#           ans +=val[s[i]]
+#           i+=1
+#           j+=1
+    
+#     return ans
+          
+    
+# print(romanToInt("III"))
 
 # import shutil
 # shutil.copy2('romeo.txt','tata.txt')
