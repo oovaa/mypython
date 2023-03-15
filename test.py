@@ -1,37 +1,79 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-=======
->>>>>>> 5b1d5d8 (removed merge conflicts)
-=======
->>>>>>> d6dc66d (add rock,paper,scissors in rps.py)
-class test:
-  def __init__(self, age):
-    self.age = age
+#quiz game
+
+def newGame():
+ gusses = []
+ correct =0
+ qnum=1
+ for k in quts:
+   print(k)
+   for i in options[qnum-1]:
+     print(i)
+   gus = input('enter A , B , C , D : ').upper()
+   gusses.append(gus)
+   correct+= check(quts.get(k),gus)
+   qnum+=1
+ showScore(correct,gusses)
+   
+
+def check(ans,gus)->int:
+  if ans == gus:
+    print('correct :)')
+    return 1
+  else:
+    print('Wrong :(')
+    return 0
+    
+    
+ 
+def showScore(correct,gusses):
+ print('answers :',end=' ')
+ for i in quts:
+  print(quts.get(i),end=' ')
+ print()
+ 
+ print('guesses :',end=' ')
+ for i in gusses:
+  print(gusses[i],end=' ')
+ print()
+ 
+ score = int(correct/len(quts)*100)
+ print('your score is', str(score)+'%')
+ 
+ 
   
-  def add(self)-> int:
-      return self.age+10
+def playAgain(args):
+ pass
 
-omer = test(8)
-while expression:
-  if condition:
-    for item in range:
-        def name(args):
-          continue
-<<<<<<< HEAD
->>>>>>> b6a78dc901bf04f76a0e4956d0ab9eb9eeb1b536
-=======
-=======
-print("omer {o} nana {n}".format(o='man',n='maman'))
-=======
->>>>>>> 80fbfeb (add rock,paper,scissors in rps.py)
+quts = {
+  'which one isthe predetor? ':'B',
+  'what is the worst uni ever?':'C',
+  'which number is the best?':'D',
+  'what is the actual name of the moon':'C',}
 
->>>>>>> 178573d (playing)
->>>>>>> 5b1d5d8 (removed merge conflicts)
+options = (("A. Whale", "B. Crocodile", "C. Elephant", "D. Ostrich"),
+           ("A. UofK", "B. Sust", "C. Al-nilayn", "D. UofNY"),
+           ("A. 206", "B. 207", "C. 208", "D. 209"),
+           ("A. Mercury", "B. Venus", "C. omar", "D. Mars"))
+newGame()
 
-print(test.add(omer))
+
+
+# class test:
+#   def __init__(self, age):
+#     self.age = age
+  
+#   def add(self)-> int:
+#       return self.age+10
+
+# omer = test(8)
+# while expression:
+#   if condition:
+#     for item in range:
+#         def name(args):
+#           continue
+
+# print(test.add(omer))
 
 
 
@@ -80,8 +122,6 @@ print(test.add(omer))
 
 
 # print("omer {o} nana {n}".format(o='man',n='maman'))
-
-<<<<<<< HEAD
 
 # def add(a:int,c:int)->any:
 #  d = 20
@@ -137,9 +177,6 @@ print(test.add(omer))
           
     
 # print(romanToInt("III"))
-
-=======
->>>>>>> d6dc66d (add rock,paper,scissors in rps.py)
 
 # def add(a:int,c:int)->any:
 #  d = 20
