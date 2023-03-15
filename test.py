@@ -1,61 +1,99 @@
 
-#quiz game
 
-def newGame():
- gusses = []
- correct =0
- qnum=1
- for k in quts:
-   print(k)
-   for i in options[qnum-1]:
-     print(i)
-   gus = input('enter A , B , C , D : ').upper()
-   gusses.append(gus)
-   correct+= check(quts.get(k),gus)
-   qnum+=1
- showScore(correct,gusses)
+
+# class prey:
+#   alive = True
+#   def flee(self):
+#    print('this animal flees ')
    
+# class predetor():
+#   def hunt(self):
+#    print('this animal hunts')
 
-def check(ans,gus)->int:
-  if ans == gus:
-    print('correct :)')
-    return 1
-  else:
-    print('Wrong :(')
-    return 0
-    
-    
+   
+# class fish(predetor,prey):   
+#   pass
+# f = fish()
+# f.flee()
+# f.hunt()
+
+
+
+# class car: 
+#   hh =55
+#   def __init__(self, name, year):
+#      self.name = name
+#      self.year = year
+     
+#   def drive(self): 
+#    print('this',self.name,'is moving')
+   
+# c = car('bmw',2022)
+# c.hh =1
+# car.hh =44
+# print(c.hh)
+
+# #quiz game
+
+# def newGame():
+#  gusses = []
+#  correct =0
+#  qnum=1
+#  for k in quts:
+#    print(k)
+#    for i in options[qnum-1]:
+#      print(i)
+#    gus = input('enter A , B , C , D : ').upper()
+#    print(gus)
+#    gusses.append(gus)
+#    correct+= check(quts.get(k),gus)
+#    qnum+=1
+#  showScore(correct,gusses)
+   
+# def check(ans,gus)->int:
+#   if ans == gus:
+#     print('correct :)')
+#     return 1
+#   else:
+#     print('Wrong :(')
+#     return 0 
  
-def showScore(correct,gusses):
- print('answers :',end=' ')
- for i in quts:
-  print(quts.get(i),end=' ')
- print()
+# def showScore(correct,gusses):
+#  print('answers :',end=' ')
+#  for i in quts:
+#   print(quts.get(i),end=' ')
+#  print()
  
- print('guesses :',end=' ')
- for i in gusses:
-  print(gusses[i],end=' ')
- print()
+#  print('guesses :',end=' ')
+#  for i in gusses:
+#   print(i,end=' ')
+#  print()
  
- score = int(correct/len(quts)*100)
- print('your score is', str(score)+'%')
- 
- 
+#  score = int(correct/len(quts)*100)
+#  print('your score is', str(score)+'%')
   
-def playAgain(args):
- pass
+# def playAgain():
+#  res = input('wanna play again ? (y/n)').lower()
+#  if res == 'y':
+#    return True
+#  else:
+#    return False
 
-quts = {
-  'which one isthe predetor? ':'B',
-  'what is the worst uni ever?':'C',
-  'which number is the best?':'D',
-  'what is the actual name of the moon':'C',}
+# quts = {
+#   'which one isthe predetor? ':'B',
+#   'what is the worst uni ever?':'B',
+#   'which number is the best?':'D',
+#   'what is the actual name of the moon':'C',}
 
-options = (("A. Whale", "B. Crocodile", "C. Elephant", "D. Ostrich"),
-           ("A. UofK", "B. Sust", "C. Al-nilayn", "D. UofNY"),
-           ("A. 206", "B. 207", "C. 208", "D. 209"),
-           ("A. Mercury", "B. Venus", "C. omar", "D. Mars"))
-newGame()
+# options = (("A. Whale", "B. Crocodile", "C. Elephant", "D. Ostrich"),
+#            ("A. UofK", "B. Sust", "C. Al-nilayn", "D. UofNY"),
+#            ("A. 206", "B. 207", "C. 208", "D. 209"),
+#            ("A. Mercury", "B. Venus", "C. omar", "D. Mars"))
+# newGame()
+# while playAgain():
+#   newGame()
+# print('\nByeeeee')
+
 
 
 
