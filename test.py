@@ -1,5 +1,23 @@
+# class Person:
+#     def __init__(self, name, age):
+#       self.name = name
+#       self.age = age
+#     def say_hi(self):
+#         print('Hello, how are you?')
 
 
+# class man(Person):
+#     def __init__(self, name, age,gen):
+#         Person.__init__(self, name, age)
+#         self.gen = gen
+
+#     def say_hi(self):
+#         print('Hello, how are you?')
+
+
+
+# m = man('omar',12,'mail')
+# m.say_hi()
 
 # class prey:
 #   alive = True
