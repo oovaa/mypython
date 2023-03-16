@@ -1,3 +1,61 @@
+# class duck:
+#     def walk(self):
+#      print('this duck is walking')
+
+# class check:
+#     def walk(self):
+#      print('this check is walking')
+      
+# def ww(duck:duck):
+#  duck.walk()
+
+# o = duck()
+# c = check()
+# ww(c)#???
+
+
+
+# class car:
+#     color = None
+    
+# def chcolor(car,color):
+#  car.color = color
+ 
+# c1 = car()
+# c2 = car()
+# c3 = car()
+
+# chcolor(c1,'red')
+# chcolor(c2,'blue')
+# chcolor(c3,'green')
+
+
+# print(c1.color)
+# print(c2.color)
+# print(c3.color)
+
+
+
+
+# from abc import ABC, abstractmethod
+
+
+# class omer.(ABC):
+#     @abstractmethod
+#     def name(name, lastName='john'):
+#         pass   
+     
+#     def hah(self):
+#      print('haha')
+     
+# class t(omer):
+#     def name(name, lastName='john'):
+#         print('hi',name,lastName)
+         
+# o = t()
+# o.hah()
+
+
 # class Person:
 #     def __init__(self, name, age):
 #       self.name = name
