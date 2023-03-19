@@ -1,41 +1,11 @@
 {
 	"files": [
 		{
-			"path": "../.vscode/extensions/frhtylcn.pythonsnippets-1.0.2/snippets/python_snippets.json",
-			"bookmarks": [
-				{
-					"line": 789,
-					"column": 37,
-					"label": ""
-				},
-				{
-					"line": 927,
-					"column": 82,
-					"label": ""
-				}
-			]
-		},
-		{
 			"path": "test.py",
 			"bookmarks": [
 				{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-					"line": 171,
-=======
-					"line": 136,
->>>>>>> b6a78dc901bf04f76a0e4956d0ab9eb9eeb1b536
-=======
-					"line": 136,
-=======
-					"line": 152,
->>>>>>> 178573d (playing)
->>>>>>> 5b1d5d8 (removed merge conflicts)
-=======
-					"line": 152,
->>>>>>> d6dc66d (add rock,paper,scissors in rps.py)
-					"column": 58,
+					"line": 2,
+					"column": 30,
 					"label": ""
 				}
 			]

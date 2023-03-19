@@ -1,3 +1,86 @@
+import time
+
+print(time.ctime(time.time())) #current time
+
+t= time.localtime()
+tt= time.strftime("%p %I:%M:%S ",t)
+print(tt)
+
+
+
+
+
+
+# l1 = list(range(0,11))
+# x = [x**2 for x in range(10)]
+# x2 = [x**3 for x in range(10)]
+# zz = zip(l1, x, x2)
+
+# z = { x:z-y for (x,y,z) in zz }
+
+# for i in z.items():
+#  print(i,end=" ")
+
+
+
+
+# a = dict([ ('brand', 1),  ('model', 3),(  'year',5)])
+# print(a)
+
+# a = list(filter(lambda x : x[0]!= 'year',a))
+# print(a)
+
+
+# print(a)
+# a= list((map(lambda x : a[x]+1 ,a)))
+# print((a))
+
+# print(a)
+
+
+# dct = {1: '1', 2 : '2'}
+# print(dct)
+
+# dct = dict(filter(lambda x : x[0] > 1, dct.items()))
+
+# print(type(dct[2]))
+
+# c = [1,3,5,6,8,9]
+
+# def add(n):
+#  return n+11
+
+
+# print(c)
+
+# c= list(map(add, c))
+# print(c)
+
+
+
+
+
+
+# a = {
+#   'brand': 'Ford',test.py
+#   'model': 'Mustang',
+#   'year': 'Last year'
+# }
+
+
+# print(a)
+# a=sorted(a.items(), key=lambda x: x[1][len(x[1])-2])
+# print(a) 
+
+# print(bool('omer'[4:]))
+
+# print('a' in ('a','v'))
+
+
+# do = lambda x: x[len(x)-1]
+# print(do('omer'))
+
+
 # class duck:
 #     def walk(self):
 #      print('this duck is walking')
