@@ -1,3 +1,51 @@
+
+
+
+
+
+
+
+
+# In this assignment you will read through and parse a
+# file with text and numbers. You will extract all the
+# numbers in the file and compute the sum of the numbers.
+# import re
+
+# f= open('regexft.txt')
+# h1= []
+# for i in f:
+#   h = re.findall('[0-9]+',i)
+#   h1.extend(h)
+  
+# sh =0
+# for i in h1:
+#   sh += int(i)
+
+# print(sh)
+
+# print(sum([ i for i  in f'[0-9]+',**************************.read()) ] ) )
+
+ 
+
+ 
+
+
+
+# s = " omer 12 in 2003 learning py3a"
+# s1 = " omer 19 in 555 learning py8"
+
+# h = re.findall('[0-9]+',s)
+# h1 = re.findall('[0-9]+',s1)
+# h1.extend(h)
+# print(h1)
+
+
+
+
+
+
+
+
 # 10.2 Write a program to read through the
 # mbox-short.txt and figure out the distribution
 # by hour of the day for each of the messages.
