@@ -1,6 +1,40 @@
+import math
+from turtle import *
+def hearta(k):
+  return 15*math.sin(k)**3
+
+def heartb(k):
+  return 12*math.cos(k)-5*\
+    math.cos(2*k)-2*\
+      math.cos(3*k)-\
+        math.cos(4*k)
+speed(500)
+bgcolor('black')
+for i in range(10000):
+  goto(hearta(i)*20,heartb(i)*20)
+  for j in range(5):
+    color("#f73487")
+  goto(0,0)
+done()
+   
+ 
 
 
 
+# import socket
+
+# mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# mysock.connect(('data.pr4e.org', 80))
+# cmd = 'GET http://data.pr4e.org/intro-short.txt HTTP/1.0\r\n\r\n'.encode()
+# mysock.send(cmd)
+
+# while True:
+#     data = mysock.recv(512)
+#     if len(data) < 1:
+#         break
+#     print(data.decode(),end='')
+    
+# mysock.close()
 
 
 
