@@ -1,21 +1,86 @@
-import math
-from turtle import *
-def hearta(k):
-  return 15*math.sin(k)**3
+# To run this, download the BeautifulSoup zip file
+# http://www.py4e.com/code3/bs4.zip
+# and unzip it in the same directory as this file
 
-def heartb(k):
-  return 12*math.cos(k)-5*\
-    math.cos(2*k)-2*\
-      math.cos(3*k)-\
-        math.cos(4*k)
-speed(500)
-bgcolor('black')
-for i in range(10000):
-  goto(hearta(i)*20,heartb(i)*20)
-  for j in range(5):
-    color("#f73487")
-  goto(0,0)
-done()
+import urllib.request, urllib.parse, urllib.error
+from bs4 import BeautifulSoup
+import ssl
+
+# Ignore SSL certificate errors
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+url = input('Enter - ')
+c = int(input('Enter count: '))
+p = int(input('Enter position: '))
+html = urllib.request.urlopen(url, context=ctx).read()
+soup = BeautifulSoup(html, 'html.parser')
+
+# Retrieve all of the anchor tags
+tags = soup('a')
+for tag in tags:
+  if 'Fikret ' in tag:
+    print(tag.get('href', None))
+
+
+
+
+
+
+
+
+# # To run this, download the BeautifulSoup zip file
+# # http://www.py4e.com/code3/bs4.zip
+# # and unzip it in the same directory as this file
+
+# from urllib.request import urlopen
+# from bs4 import BeautifulSoup
+# import ssl
+
+# # Ignore SSL certificate errors
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+
+# url = input('Enter - ')
+# html = urlopen(url, context=ctx).read()
+# soup = BeautifulSoup(html, "html.parser")
+
+# # Retrieve all of the anchor tags
+# tags = soup('span')
+# c=0
+# for tag in tags:
+#     # Look at the parts of a tag
+#     print('TAG:', tag)
+#     print('URL:', tag.get('href', None))
+#     print('Contents:', tag.contents[0])
+#     print('Attrs:', tag.attrs)
+#     c+=int(tag.contents[0])
+# print(c)
+
+
+
+
+
+# import math
+# from turtle import *
+# def hearta(k):
+#   return 15*math.sin(k)**3
+
+# def heartb(k):
+#   return 12*math.cos(k)-5*\
+#     math.cos(2*k)-2*\
+#       math.cos(3*k)-\
+#         math.cos(4*k)
+# speed(500)
+# bgcolor('black')
+# for i in range(10000):
+#   goto(hearta(i)*20,heartb(i)*20)
+#   for j in range(5):
+#     color("#f73487")
+#   goto(0,0)
+# done()
    
  
 

@@ -1,10 +1,26 @@
-import time
 
-print(time.ctime(time.time())) #current time
+ff = open('romeo.txt').read()
+x =[i for i in ff if i != ' ' and i != '\n']
+print(max(x) , x.count(max(x)))
+# d = {(k,v) for (k,x.count(k)) in x}
 
-t= time.localtime()
-tt= time.strftime("%p %I:%M:%S ",t)
-print(tt)
+d = dict()
+for i in x:
+    d[i] =d.get(i,0)+1
+
+d = sorted(d.items())
+print(max(d))
+print(ord('y'))
+
+
+
+# import time
+
+# print(time.ctime(time.time())) #current time
+
+# t= time.localtime()
+# tt= time.strftime("%p %I:%M:%S ",t)
+# print(tt)
 
 
 

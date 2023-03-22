@@ -6,6 +6,8 @@ import random
 import re
 import sys
 
+list1 = [3,4,5,7,2,8]
+print(list1[2:5])
 
 
 
