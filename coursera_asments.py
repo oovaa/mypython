@@ -27,7 +27,9 @@ for i in range(c):
   url = ll[p-1]
   print(ll[p-1])
 
-
+# Actual problem: Start at: http://py4e-data.dr-chuck.net/known_by_Taira.html
+# Find the link at position 18 (the first name is 1). Follow that link. Repeat this process 7 times. The answer is the last name that you retrieve.
+# Hint: The first character of the name of the last page that you will load is: E
 
 
 
