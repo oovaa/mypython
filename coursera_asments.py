@@ -14,14 +14,19 @@ ctx.verify_mode = ssl.CERT_NONE
 url = input('Enter - ')
 c = int(input('Enter count: '))
 p = int(input('Enter position: '))
-html = urllib.request.urlopen(url, context=ctx).read()
-soup = BeautifulSoup(html, 'html.parser')
+for i in range(c):
+  html = urllib.request.urlopen(url, context=ctx).read()
+  soup = BeautifulSoup(html, 'html.parser')
+  
+  # Retrieve all of the anchor tags
+  tags = soup('a')
+  ll =list()
+  for tag in tags:
+     # print(tag.get('href', None))
+      ll.append(tag.get('href', None))
+  url = ll[p-1]
+  print(ll[p-1])
 
-# Retrieve all of the anchor tags
-tags = soup('a')
-for tag in tags:
-  if 'Fikret ' in tag:
-    print(tag.get('href', None))
 
 
 
