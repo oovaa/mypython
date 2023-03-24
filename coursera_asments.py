@@ -1,31 +1,276 @@
+import urllib.request as ur
+import xml.etree.ElementTree as et
+
+url='http://py4e-data.dr-chuck.net/comments_1763025.xml'
+print('Retrieving',url)
+
+xml = ur.urlopen(url).read()
+print("Retrieved",len(xml),'characters')
+doc = et.fromstring(xml)
+counts = doc.findall('.//count')
+print('count',len(counts))
+sum =0
+for i in counts:
+ sum+=int(i.text)
+print('sum:',sum)
+
+
+
+
+
+
+
+# data = '''<commentinfo>
+# <note>This file contains the actual data for your assignment - good luck!</note>
+# <comments>
+# <comment>
+# <name>Virginie</name>
+# <count>100</count>
+# </comment>
+# <comment>
+# <name>Kady</name>
+# <count>98</count>
+# </comment>
+# <comment>
+# <name>Ida</name>
+# <count>94</count>
+# </comment>
+# <comment>
+# <name>Krishan</name>
+# <count>94</count>
+# </comment>
+# <comment>
+# <name>Fruin</name>
+# <count>90</count>
+# </comment>
+# <comment>
+# <name>Kaylin</name>
+# <count>89</count>
+# </comment>
+# <comment>
+# <name>Sami</name>
+# <count>86</count>
+# </comment>
+# <comment>
+# <name>Aon</name>
+# <count>84</count>
+# </comment>
+# <comment>
+# <name>Sehar</name>
+# <count>84</count>
+# </comment>
+# <comment>
+# <name>Paidamoyo</name>
+# <count>84</count>
+# </comment>
+# <comment>
+# <name>Calan</name>
+# <count>82</count>
+# </comment>
+# <comment>
+# <name>Samuel</name>
+# <count>80</count>
+# </comment>
+# <comment>
+# <name>Keir</name>
+# <count>77</count>
+# </comment>
+# <comment>
+# <name>Lowena</name>
+# <count>76</count>
+# </comment>
+# <comment>
+# <name>Lena</name>
+# <count>71</count>
+# </comment>
+# <comment>
+# <name>Luis</name>
+# <count>69</count>
+# </comment>
+# <comment>
+# <name>Kaye</name>
+# <count>65</count>
+# </comment>
+# <comment>
+# <name>Oluwafemi</name>
+# <count>64</count>
+# </comment>
+# <comment>
+# <name>Rohin</name>
+# <count>63</count>
+# </comment>
+# <comment>
+# <name>Kofi</name>
+# <count>60</count>
+# </comment>
+# <comment>
+# <name>Krista</name>
+# <count>57</count>
+# </comment>
+# <comment>
+# <name>Jess</name>
+# <count>56</count>
+# </comment>
+# <comment>
+# <name>Ameelia</name>
+# <count>55</count>
+# </comment>
+# <comment>
+# <name>Braiden</name>
+# <count>55</count>
+# </comment>
+# <comment>
+# <name>Possum</name>
+# <count>50</count>
+# </comment>
+# <comment>
+# <name>Mahum</name>
+# <count>46</count>
+# </comment>
+# <comment>
+# <name>Romilly</name>
+# <count>45</count>
+# </comment>
+# <comment>
+# <name>Azedine</name>
+# <count>41</count>
+# </comment>
+# <comment>
+# <name>Morton</name>
+# <count>41</count>
+# </comment>
+# <comment>
+# <name>Ryhanna</name>
+# <count>39</count>
+# </comment>
+# <comment>
+# <name>Jamal</name>
+# <count>35</count>
+# </comment>
+# <comment>
+# <name>Ezekiel</name>
+# <count>35</count>
+# </comment>
+# <comment>
+# <name>Georgy</name>
+# <count>33</count>
+# </comment>
+# <comment>
+# <name>Capri</name>
+# <count>32</count>
+# </comment>
+# <comment>
+# <name>Kenneth</name>
+# <count>30</count>
+# </comment>
+# <comment>
+# <name>Laurabeth</name>
+# <count>30</count>
+# </comment>
+# <comment>
+# <name>Yaris</name>
+# <count>28</count>
+# </comment>
+# <comment>
+# <name>Aimeeleigh</name>
+# <count>28</count>
+# </comment>
+# <comment>
+# <name>Harleigh</name>
+# <count>28</count>
+# </comment>
+# <comment>
+# <name>Saman</name>
+# <count>26</count>
+# </comment>
+# <comment>
+# <name>Livie</name>
+# <count>22</count>
+# </comment>
+# <comment>
+# <name>Renas</name>
+# <count>22</count>
+# </comment>
+# <comment>
+# <name>Roary</name>
+# <count>22</count>
+# </comment>
+# <comment>
+# <name>Kelvin</name>
+# <count>18</count>
+# </comment>
+# <comment>
+# <name>Laughlan</name>
+# <count>15</count>
+# </comment>
+# <comment>
+# <name>Marwad</name>
+# <count>13</count>
+# </comment>
+# <comment>
+# <name>Mohanad</name>
+# <count>13</count>
+# </comment>
+# <comment>
+# <name>Rebeka</name>
+# <count>7</count>
+# </comment>
+# <comment>
+# <name>Robbie</name>
+# <count>7</count>
+# </comment>
+# <comment>
+# <name>Saicu</name>
+# <count>6</count>
+# </comment>
+# </comments>
+# </commentinfo>
+# '''
+# stuff = ET.fromstring(data)
+# # print(stuff.findall('comments/comment/count'))
+# print(len(stuff.findall('comments/comment/count')))
+
+
+# ls  = [ x.text for x in  stuff.findall('comments/comment/count')]
+# print((ls))
+
+# sum =0
+# for i in ls: 
+#     sum +=int(i)
+# print(sum)
+
+
+
 # To run this, download the BeautifulSoup zip file
 # http://www.py4e.com/code3/bs4.zip
 # and unzip it in the same directory as this file
 
-import urllib.request, urllib.parse, urllib.error
-from bs4 import BeautifulSoup
-import ssl
+# import urllib.request, urllib.parse, urllib.error
+# from bs4 import BeautifulSoup
+# import ssl
 
-# Ignore SSL certificate errors
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
+# # Ignore SSL certificate errors
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
 
-url = input('Enter - ')
-c = int(input('Enter count: '))
-p = int(input('Enter position: '))
-for i in range(c):
-  html = urllib.request.urlopen(url, context=ctx).read()
-  soup = BeautifulSoup(html, 'html.parser')
+# url = input('Enter - ')
+# c = int(input('Enter count: '))
+# p = int(input('Enter position: '))
+# for i in range(c):
+#   html = urllib.request.urlopen(url, context=ctx).read()
+#   soup = BeautifulSoup(html, 'html.parser')
+#   print(html)
   
-  # Retrieve all of the anchor tags
-  tags = soup('a')
-  ll =list()
-  for tag in tags:
-     # print(tag.get('href', None))
-      ll.append(tag.get('href', None))
-  url = ll[p-1]
-  print(ll[p-1])
+  
+#   # Retrieve all of the anchor tags
+#   tags = soup('a')
+#   ll =list()
+#   for tag in tags:
+#      # print(tag.get('href', None))
+#       ll.append(tag.get('href', None))
+#   url = ll[p-1]
+#   print(ll[p-1])
 
 # Actual problem: Start at: http://py4e-data.dr-chuck.net/known_by_Taira.html
 # Find the link at position 18 (the first name is 1). Follow that link. Repeat this process 7 times. The answer is the last name that you retrieve.
