@@ -1,19 +1,105 @@
-import urllib.request as ur
-import xml.etree.ElementTree as et
+# In this assignment you will write a Python program somewhat 
+# similar to http://www.py4e.com/code3/geojson.py. The program 
+# will prompt for a location, contact a web service and retrieve 
+# JSON for the web service and parse that data, and retrieve the 
+# first place_id from the JSON. A place ID is a textual identifier
+# that uniquely identifies a place as within Google Maps.
 
-url='http://py4e-data.dr-chuck.net/comments_1763025.xml'
-print('Retrieving',url)
+import urllib.request, urllib.parse, urllib.error
+import json
+import ssl
 
-xml = ur.urlopen(url).read()
-print("Retrieved",len(xml),'characters')
-doc = et.fromstring(xml)
-counts = doc.findall('.//count')
-print('count',len(counts))
-sum =0
-for i in counts:
- sum+=int(i.text)
-print('sum:',sum)
+api_key = False
+# If you have a Google Places API key, enter it here
+# api_key = 'AIzaSy___IDByT70'
+# https://developers.google.com/maps/documentation/geocoding/intro
 
+if api_key is False:
+    api_key = 42
+    serviceurl = 'http://py4e-data.dr-chuck.net/json?'
+else :
+    serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+
+# Ignore SSL certificate errors
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+
+address = input('Enter location: ')
+
+parms = dict()
+parms['address'] = address
+if api_key is not False: parms['key'] = api_key
+url = serviceurl + urllib.parse.urlencode(parms)
+print('Retrieving', url)
+uh = urllib.request.urlopen(url, context=ctx)
+data = uh.read().decode()
+print('Retrieved', len(data), 'characters')
+
+try:
+    js = json.loads(data)
+except:
+    js = None
+if not js or 'status' not in js or js['status'] != 'OK':
+    print('==== Failure To Retrieve ====')
+    print(data)
+    exit()
+    
+# print(json.dumps(js, indent=4))
+lat = js['results'][0]['geometry']['location']['lat']
+lng = js['results'][0]['geometry']['location']['lng']
+print('place_id :', js['results'][0]['place_id'])
+
+print('lat', lat, 'lng', lng)
+location = js['results'][0]['formatted_address']
+print(location)
+
+# International Institute of Information Technology Hyderabad
+
+
+
+
+
+
+# In this assignment you will write a Python program somewhat similar 
+# to http://www.py4e.com/code3/json2.py. The program will prompt for a
+# URL, read the JSON data from that URL using urllib and then parse and
+# extract the comment counts from the JSON data, compute the sum of the 
+# numbers in the file and enter the sum below:
+
+# import urllib.request as ur
+# import json
+
+# date = ur.urlopen('http://py4e-data.dr-chuck.net/comments_1763026.json').read().decode()
+# jd = json.loads(date)['comments']
+# print(len(jd))
+# sum = 0
+# for i in jd:
+#   sum+=i['count']
+# print(sum)
+ 
+
+
+
+
+
+
+# import urllib.request as ur
+# import xml.etree.ElementTree as et
+
+# url='http://py4e-data.dr-chuck.net/comments_1763025.xml'
+# print('Retrieving',url)
+
+# xml = ur.urlopen(url).read()
+# print("Retrieved",len(xml),'characters')
+# doc = et.fromstring(xml)
+# counts = doc.findall('.//count')
+# print('count',len(counts))
+# sum =0
+# for i in counts:
+#  sum+=int(i.text)
+# print('sum:',sum)
 
 
 
