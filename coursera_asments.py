@@ -1,3 +1,42 @@
+import sqlite3
+
+con = sqlite3.connect('emaildb.sqlite')
+cur = con.cursor()
+
+cur.execute('DROP TABLE IF EXISTS Counts')
+cur.execute('CREATE TABLE Counts (org TEXT , count INTEGER)')
+
+fname = input('Enter file name: ')
+if (len(fname) < 1): fname = 'mbox.txt'
+fh = open(fname)
+for i in fh:
+  if not i.startswith('From: '): continue
+  org = i.split()[1].split('@')[1]
+  # print(org)
+  cur.execute('SELECT count FROM Counts WHERE org = ? ', (org,))
+  row = cur.fetchone()
+
+  if row is None:
+    cur.execute('INSERT INTO Counts (org,count) VALUES (?,1)',(org,))
+  else:
+    cur.execute('UPDATE Counts  SET count=count +1 WHERE org=?',(org,))
+con.commit() 
+  
+sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
+
+for row in cur.execute(sqlstr):
+    print(str(row[0]), row[1])
+    
+cur.execute('DELETE FROM Counts')
+cur.close()
+ 
+
+
+
+
+
+
+
 # In this assignment you will write a Python program somewhat 
 # similar to http://www.py4e.com/code3/geojson.py. The program 
 # will prompt for a location, contact a web service and retrieve 
@@ -5,32 +44,25 @@
 # first place_id from the JSON. A place ID is a textual identifier
 # that uniquely identifies a place as within Google Maps.
 
-import urllib.request as ur
-import urllib.parse as up
-import json
-import ssl
+# import urllib.request as ur
+# import urllib.parse as up
+# import json
 
-serviceurl = 'http://py4e-data.dr-chuck.net/json?'
+# serviceurl = 'http://py4e-data.dr-chuck.net/json?'
 
-loc = input('enter location :')
+# loc = input('enter location :')
 
-# Ignore SSL certificate errors
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
+# url = serviceurl + up.urlencode({'key':42,'address':loc})
+# uh = ur.urlopen(url)
+# data = uh.read().decode()
 
 
-url = serviceurl + up.urlencode({'key':42,'address':loc})
-uh = ur.urlopen(url,context=ctx)
-data = uh.read().decode()
+# js = json.loads(data)
+# print(json.dumps(js, indent=2))
 
-
-js = json.loads(data)
-print(json.dumps(js, indent=2))
-
-print("Retrieving ", url)
-print('Retrieved ',len(data),' characters')
-print('place_id :',js['results'][0]['place_id'])
+# print("Retrieving ", url)
+# print('Retrieved ',len(data),' characters')
+# print('place_id :',js['results'][0]['place_id'])
 
 
 

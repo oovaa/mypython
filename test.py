@@ -1,16 +1,35 @@
+x = 0
+while True:
+  print(x:=x+1)
+  
+# class test:
+#     x =0
+#     def add(self,am : int)-> str:
+#      self.x+=am
+#      return self.x
+ 
+# o = test()
+# a = test()
+# o.x=10
 
-ff = open('romeo.txt').read()
-x =[i for i in ff if i != ' ' and i != '\n']
-print(max(x) , x.count(max(x)))
-# d = {(k,v) for (k,x.count(k)) in x}
+# print(type(o.add(11)))
 
-d = dict()
-for i in x:
-    d[i] =d.get(i,0)+1
 
-d = sorted(d.items())
-print(max(d))
-print(ord('y'))
+
+
+
+# ff = open('romeo.txt').read()
+# x =[i for i in ff if i != ' ' and i != '\n']
+# print(max(x) , x.count(max(x)))
+# # d = {(k,v) for (k,x.count(k)) in x}
+
+# d = dict()
+# for i in x:
+#     d[i] =d.get(i,0)+1
+
+# d = sorted(d.items())
+# print(max(d))
+# print(ord('y'))
 
 
 

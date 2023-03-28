@@ -4,7 +4,7 @@
 			"path": "test.py",
 			"bookmarks": [
 				{
-					"line": 18,
+					"line": 37,
 					"column": 30,
 					"label": ""
 				}
@@ -14,8 +14,18 @@
 			"path": "coursera_asments.py",
 			"bookmarks": [
 				{
-					"line": 438,
+					"line": 470,
 					"column": 14,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "leetcode.py",
+			"bookmarks": [
+				{
+					"line": 55,
+					"column": 31,
 					"label": ""
 				}
 			]
