@@ -1,34 +1,202 @@
+import xml.etree.ElementTree as et
 import sqlite3
 
-con = sqlite3.connect('emaildb.sqlite')
+con = sqlite3.connect('trackdbassment.sqlite')
 cur = con.cursor()
+cur.executescript('''
+                  
+ DROP TABLE IF EXISTS Artist;
+ DROP TABLE IF EXISTS Album;
+ DROP TABLE IF EXISTS Track;          
+ DROP TABLE IF EXISTS Genre;          
+                  
+                  
+CREATE TABLE Artist (
+    id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+    name    TEXT UNIQUE
+);
 
-cur.execute('DROP TABLE IF EXISTS Counts')
-cur.execute('CREATE TABLE Counts (org TEXT , count INTEGER)')
+CREATE TABLE Genre (
+    id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+    name    TEXT UNIQUE
+);
 
-fname = input('Enter file name: ')
-if (len(fname) < 1): fname = 'mbox.txt'
-fh = open(fname)
-for i in fh:
-  if not i.startswith('From: '): continue
-  org = i.split()[1].split('@')[1]
-  # print(org)
-  cur.execute('SELECT count FROM Counts WHERE org = ? ', (org,))
-  row = cur.fetchone()
+CREATE TABLE Album (
+    id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+    artist_id  INTEGER,
+    title   TEXT UNIQUE
+);
 
-  if row is None:
-    cur.execute('INSERT INTO Counts (org,count) VALUES (?,1)',(org,))
-  else:
-    cur.execute('UPDATE Counts  SET count=count +1 WHERE org=?',(org,))
-con.commit() 
+CREATE TABLE Track (
+    id  INTEGER NOT NULL PRIMARY KEY 
+        AUTOINCREMENT UNIQUE,
+    title TEXT  UNIQUE,
+    album_id  INTEGER,
+    genre_id  INTEGER,
+    len INTEGER, rating INTEGER, count INTEGER
+);  ''')
+
+def look(d, key):
+    found = False
+    for child in d:
+        if found : return child.text
+        if child.tag == 'key' and child.text == key :found = True
+
+xml = et.parse('Library.xml')
+shti = xml.findall('dict/dict/dict')
+for i in shti:
+  if look(i,'Track ID') is None : continue
+  name = look(i,'Name')
+  artist = look(i,'Artist')
+  album = look(i,'Album')
+  count = look(i,'Play Count')
+  rating = look(i,'Rating')
+  length = look(i,'Total Time')
+  Genre = look(i,'Genre')
   
-sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
+  if name is None or artist is None or album is None or Genre is None: continue
+  
+  print(name,artist,album,count,length,Genre,rating)
+  
+  cur.execute('INSERT OR IGNORE INTO Artist (name) VALUES (?)',(name,))
+  cur.execute('SELECT  id FROM Artist WHERE name=?',(name,))
+  artist_id = cur.fetchone()[0]
+  
+  cur.execute('INSERT OR IGNORE INTO Genre (name) VALUES (?)',(Genre,))
+  cur.execute('SELECT  id FROM Genre WHERE name=?',(Genre,))
+  genre_id = cur.fetchone()[0]
+  
+  cur.execute('INSERT OR IGNORE INTO Album (title,artist_id) VALUES (?,?)',(album,artist_id))
+  cur.execute('SELECT  id FROM Album WHERE title=?',(album,))
+  album_id = cur.fetchone()[0]
+  
+  cur.execute('INSERT OR IGNORE INTO Track (title,album_id,genre_id,len,rating,count) VALUES (?,?,?,?,?,?)',(name,album_id,genre_id,length,rating,count))
+  
+  con.commit()
 
-for row in cur.execute(sqlstr):
-    print(str(row[0]), row[1])
+
+
+
+
+
+
+
+
+
+
+  
+ 
+
+
+
+
+
+
+
+
+# import xml.etree.ElementTree as et
+# import sqlite3
+
+# con = sqlite3.connect('trackdb.sqlite')
+# cur = con.cursor()
+
+# cur.executescript('''
+# DROP TABLE IF EXISTS Artist;
+# DROP TABLE IF EXISTS Album;
+# DROP TABLE IF EXISTS Track;
+
+# CREATE TABLE Artist(
+#   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#   name TEXT UNIQUE
+# );
+
+# CREATE TABLE Album (
+#   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#   artistId INTEGER ,
+#   title TEXT UNIQUE
+#   );
+#   CREATE TABLE Track (
+#   id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#   albumId INTEGER ,
+#   title TEXT UNIQUE,
+#   len INTEGER,rating INTEGER , count INTEGER
+ 
+#   );
+  
+#             ''')
+# fname = 'Library.xml'
+
+# def look(d, key):
+#     found = False
+#     for child in d:
+#         if found : return child.text
+#         if child.tag == 'key' and child.text == key :found = True
+        
+#     return None
+
+# shit = et.parse(fname)
+# all = shit.findall('dict/dict/dict')
+# print('there are',len(all),'dicts')
+
+# for i in all :
+#   if look(i,'Track ID') is None: continue
+#   name = look(i,'Name')
+#   artist = look(i,'Artist')
+#   album = look(i,'Album')
+#   count = look(i,'Play Count')
+#   rating = look(i,'Rating')
+#   length = look(i,'Total Time')
+#   # Genre = look(i,'Genre')
+
+#   if name is None or artist is None or album is None :continue
+#   print(name,artist,album,count,rating,length)
+  
+#   cur.execute('INSERT OR IGNORE INTO Artist (name) VALUES (?)',(artist,))
+#   cur.execute('SELECT id FROM Artist WHERE name=?',(artist,))
+#   artistID = cur.fetchone()[0]
+#   cur.execute('INSERT OR IGNORE INTO Album (title ,artistId ) VALUES (?,?)',(album,artistID))
+#   cur.execute('SELECT id FROM Album WHERE title=?',(album,))
+#   albumId = cur.fetchone()[0]
+#   cur.execute('INSERT OR REPLACE INTO Track (title,albumId,len,rating,count ) VALUES (?,?,?,?,?)',(name,albumId,length,rating,count))
+#   con.commit()
+  
+  # SELECT Track.title , Album.title, Artist.name FROM Track join Album JOIN Artist on Track.albumId = Album.id AND Album.artistId = Artist.id
+
+
+
+
+
+# import sqlite3
+
+# con = sqlite3.connect('emaildb.sqlite')
+# cur = con.cursor()
+
+# cur.execute('DROP TABLE IF EXISTS Counts')
+# cur.execute('CREATE TABLE Counts (org TEXT , count INTEGER)')
+
+# fname = input('Enter file name: ')
+# if (len(fname) < 1): fname = 'mbox.txt'
+# fh = open(fname)
+# for i in fh:
+#   if not i.startswith('From: '): continue
+#   org = i.split()[1].split('@')[1]
+#   # print(org)
+#   cur.execute('SELECT count FROM Counts WHERE org = ? ', (org,))
+#   row = cur.fetchone()
+
+#   if row is None:
+#     cur.execute('INSERT INTO Counts (org,count) VALUES (?,1)',(org,))
+#   else:
+#     cur.execute('UPDATE Counts  SET count=count +1 WHERE org=?',(org,))
+# con.commit() 
+  
+# sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
+
+# for row in cur.execute(sqlstr):
+#     print(str(row[0]), row[1])
     
-cur.execute('DELETE FROM Counts')
-cur.close()
+# cur.execute('DELETE FROM Counts')
+# cur.close()
  
 
 
