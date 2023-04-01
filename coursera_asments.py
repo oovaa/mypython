@@ -1,78 +1,159 @@
-import xml.etree.ElementTree as et
+import json
 import sqlite3
 
-con = sqlite3.connect('trackdbassment.sqlite')
+con  = sqlite3.connect('roster.sqlite')
 cur = con.cursor()
+
 cur.executescript('''
-                  
- DROP TABLE IF EXISTS Artist;
- DROP TABLE IF EXISTS Album;
- DROP TABLE IF EXISTS Track;          
- DROP TABLE IF EXISTS Genre;          
-                  
-                  
-CREATE TABLE Artist (
-    id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-    name    TEXT UNIQUE
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Member;
+DROP TABLE IF EXISTS Course;
+
+CREATE TABLE User (
+    id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+    name   TEXT UNIQUE
 );
 
-CREATE TABLE Genre (
-    id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-    name    TEXT UNIQUE
+CREATE TABLE Course (
+    id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+    title  TEXT UNIQUE
 );
 
-CREATE TABLE Album (
-    id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
-    artist_id  INTEGER,
-    title   TEXT UNIQUE
-);
+CREATE TABLE Member (
+    user_id     INTEGER,
+    course_id   INTEGER,
+    role        INTEGER,
+    PRIMARY KEY (user_id, course_id)
+)
+''')
 
-CREATE TABLE Track (
-    id  INTEGER NOT NULL PRIMARY KEY 
-        AUTOINCREMENT UNIQUE,
-    title TEXT  UNIQUE,
-    album_id  INTEGER,
-    genre_id  INTEGER,
-    len INTEGER, rating INTEGER, count INTEGER
-);  ''')
 
-def look(d, key):
-    found = False
-    for child in d:
-        if found : return child.text
-        if child.tag == 'key' and child.text == key :found = True
+js = json.loads(open('roster_data.json').read())
+for i in js:
+  name = i[0]
+  title = i[1]
+  role = i[2]
+  
+  print('name :',name,'title :',title,'role :',role)
+  
+  
+  cur.execute('INSERT OR IGNORE INTO User (name) VALUES (?)',(name,))
+  cur.execute('SELECT  id FROM User WHERE name=?',(name,))
+  user_id = cur.fetchone()[0]
+  
+  cur.execute('INSERT OR IGNORE INTO Course (title) VALUES (?)',(title,))
+  cur.execute('SELECT  id FROM Course WHERE title=?',(title,))
+  course_id = cur.fetchone()[0]
+  
+  cur.execute('INSERT OR IGNORE INTO Member (user_id,course_id,role) VALUES (?,?,?)',(user_id,course_id,role))
+  
+# cur.executescript('''SELECT User.name,Course.title, Member.role FROM 
+#     User JOIN Member JOIN Course    fix this and figure out how to use fetchone to print date 
+#     ON User.id = Member.user_id AND Member.course_id = Course.id
+#     ORDER BY User.name DESC, Course.title DESC, Member.role DESC LIMIT 2;''')
+# data = cur.fetchone()
+# print(data)
 
-xml = et.parse('Library.xml')
-shti = xml.findall('dict/dict/dict')
-for i in shti:
-  if look(i,'Track ID') is None : continue
-  name = look(i,'Name')
-  artist = look(i,'Artist')
-  album = look(i,'Album')
-  count = look(i,'Play Count')
-  rating = look(i,'Rating')
-  length = look(i,'Total Time')
-  Genre = look(i,'Genre')
+
+con.commit()
+
+
+# SELECT User.name,Course.title, Member.role FROM 
+#     User JOIN Member JOIN Course 
+#     ON User.id = Member.user_id AND Member.course_id = Course.id
+#     ORDER BY User.name DESC, Course.title DESC, Member.role DESC LIMIT 2;
+
+# SELECT 'XYZZY' || hex(User.name || Course.title || Member.role ) AS X FROM 
+#     User JOIN Member JOIN Course 
+#     ON User.id = Member.user_id AND Member.course_id = Course.id
+#     ORDER BY X LIMIT 1;
+
+
+
+
+
+
+
+
+
+
+
+
+# import xml.etree.ElementTree as et
+# import sqlite3
+
+# con = sqlite3.connect('trackdbassment.sqlite')
+# cur = con.cursor()
+# cur.executescript('''
+                  
+#  DROP TABLE IF EXISTS Artist;
+#  DROP TABLE IF EXISTS Album;
+#  DROP TABLE IF EXISTS Track;          
+#  DROP TABLE IF EXISTS Genre;          
+                  
+                  
+# CREATE TABLE Artist (
+#     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#     name    TEXT UNIQUE
+# );
+
+# CREATE TABLE Genre (
+#     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#     name    TEXT UNIQUE
+# );
+
+# CREATE TABLE Album (
+#     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#     artist_id  INTEGER,
+#     title   TEXT UNIQUE
+# );
+
+# CREATE TABLE Track (
+#     id  INTEGER NOT NULL PRIMARY KEY 
+#         AUTOINCREMENT UNIQUE,
+#     title TEXT  UNIQUE,
+#     album_id  INTEGER,
+#     genre_id  INTEGER,
+#     len INTEGER, rating INTEGER, count INTEGER
+# );  ''')
+
+# def look(d, key):
+#     found = False
+#     for child in d:
+#         if found : return child.text
+#         if child.tag == 'key' and child.text == key :found = True
+
+# xml = et.parse('Library.xml')
+# shti = xml.findall('dict/dict/dict')
+# for i in shti:
+#   if look(i,'Track ID') is None : continue
+#   name = look(i,'Name')
+#   artist = look(i,'Artist')
+#   album = look(i,'Album')
+#   count = look(i,'Play Count')
+#   rating = look(i,'Rating')
+#   length = look(i,'Total Time')
+#   Genre = look(i,'Genre')
   
-  if name is None or artist is None or album is None or Genre is None: continue
+#   if name is None or artist is None or album is None or Genre is None: continue
   
-  print(name,artist,album,count,length,Genre,rating)
+#   print(name,artist,album,count,length,Genre,rating)
   
-  cur.execute('INSERT OR IGNORE INTO Artist (name) VALUES (?)',(name,))
-  cur.execute('SELECT  id FROM Artist WHERE name=?',(name,))
-  artist_id = cur.fetchone()[0]
+#   cur.execute('INSERT OR IGNORE INTO Artist (name) VALUES (?)',(name,))
+#   cur.execute('SELECT  id FROM Artist WHERE name=?',(name,))
+#   artist_id = cur.fetchone()[0]
   
-  cur.execute('INSERT OR IGNORE INTO Genre (name) VALUES (?)',(Genre,))
-  cur.execute('SELECT  id FROM Genre WHERE name=?',(Genre,))
-  genre_id = cur.fetchone()[0]
+#   cur.execute('INSERT OR IGNORE INTO Genre (name) VALUES (?)',(Genre,))
+#   cur.execute('SELECT  id FROM Genre WHERE name=?',(Genre,))
+#   genre_id = cur.fetchone()[0]
   
-  cur.execute('INSERT OR IGNORE INTO Album (title,artist_id) VALUES (?,?)',(album,artist_id))
-  cur.execute('SELECT  id FROM Album WHERE title=?',(album,))
-  album_id = cur.fetchone()[0]
+#   cur.execute('INSERT OR IGNORE INTO Album (title,artist_id) VALUES (?,?)',(album,artist_id))
+#   cur.execute('SELECT  id FROM Album WHERE title=?',(album,))
+#   album_id = cur.fetchone()[0]
   
-  cur.execute('INSERT OR IGNORE INTO Track (title,album_id,genre_id,len,rating,count) VALUES (?,?,?,?,?,?)',(name,album_id,genre_id,length,rating,count))
+#   cur.execute('INSERT OR IGNORE INTO Track (title,album_id,genre_id,len,rating,count) VALUES (?,?,?,?,?,?)',(name,album_id,genre_id,length,rating,count))
   
-  con.commit()
+#   con.commit()
 
 
 
