@@ -1,10 +1,9 @@
 import urllib.request, urllib.parse, urllib.error
-import http
 import sqlite3
 import json
 import time
 import ssl
-import sys
+
 
 api_key = False
 # If you have a Google Places API key, enter it here
@@ -30,7 +29,7 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
-fh = open("where.data")
+fh = open('/home/omar/pyp/code3/geodata/where.data')
 count = 0
 for line in fh:
     if count > 200 :
@@ -76,6 +75,6 @@ for line in fh:
     conn.commit()
     if count % 10 == 0 :
         print('Pausing for a bit...')
-        time.sleep(5)
+        # time.sleep(2)
 
 print("Run geodump.py to read the data from the database so you can vizualize it on a map.")
