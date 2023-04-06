@@ -14,12 +14,9 @@ ctx.verify_mode = ssl.CERT_NONE
 conn = sqlite3.connect('spider.sqlite')
 cur = conn.cursor()
 
-cur.execute('''CREATE TABLE IF NOT EXISTS Pages
-    (id INTEGER PRIMARY KEY, url TEXT UNIQUE, html TEXT,
-     error INTEGER, old_rank REAL, new_rank REAL)''')
+cur.execute('''CREATE TABLE IF NOT EXISTS Pages (id INTEGER PRIMARY KEY, url TEXT UNIQUE, html TEXT,error INTEGER, old_rank REAL, new_rank REAL)''')
 
-cur.execute('''CREATE TABLE IF NOT EXISTS Links
-    (from_id INTEGER, to_id INTEGER, UNIQUE(from_id, to_id))''')
+cur.execute('''CREATE TABLE IF NOT EXISTS Links (from_id INTEGER, to_id INTEGER, UNIQUE(from_id, to_id))''')
 
 cur.execute('''CREATE TABLE IF NOT EXISTS Webs (url TEXT UNIQUE)''')
 
@@ -61,7 +58,7 @@ while True:
     cur.execute('SELECT id,url FROM Pages WHERE html is NULL and error is NULL ORDER BY RANDOM() LIMIT 1')
     try:
         row = cur.fetchone()
-        # print row
+        # print (row)
         fromid = row[0]
         url = row[1]
     except:

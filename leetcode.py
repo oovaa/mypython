@@ -1,56 +1,140 @@
-class Solution:
-    def maximumTop(self, nums: list[int], k: int) -> int:
-        top =-1
-        flen = len(nums)
+nums = [1,2,3,4,5]
+# ans = (sum([x for x in nums if nums.count(x)==1]))
+ans = 0 
+for i in nums:
+  if nums.count(i)>1:
+    continue
+  ans+=i
+# return ans
+
+
+print(ans)
+
+
+
+
+
+# class Solution:
+#     def isIsomorphic(self, s: str, t: str) -> bool:
+#         if set(list(s))!=set((list(t))):
+#           return False
+#         hold = dict()
+#         for i in enumerate(s): 
+#             if hold.get(i[1]) is None: hold[i[1]] = t[i[0]]
+#         for i in enumerate(s):
+#             # print(hold[i[1]],t[i[0]])
+#             if hold[i[1]] != t[i[0]]:
+#               return False
+#         return True
         
-        for i in range(min(k,len(nums))):
-            if flen==1:
-                if k==1:return -1
-                else: return (nums[0])
+    
+# ans = True
+# s = "badc"
+# t = "baba"
+# # t1= Solution()
+# # print(t1.isIsomorphic(s,t))
+
+# # s = "egg"
+# # t = "add"
+    
+    
+# map1 = []
+# map2 = []
+# for idx in s:
+#     map1.append(s.index(idx))
+#     print(s.index(idx),idx,end=" ")
+# print()
+
+# for idx in t:
+#     map2.append(t.index(idx))
+#     print(t.index(idx),idx,end=" ")
+# print()
+# print(map1)
+# print(map2)
+    
+# print(z:=set(zip(s,t)))
+  
+# ans = [x[0] for x in z]
+# print((ans))
+
+
+
+
+
+
+
+ 
+
+
+
+# for i in enumerate(s):
+#     print(hold[i[1]],t[i[0]])
+#     if hold[i[1]] != t[i[0]]:
+#       print('False')
+#       break
+#     print('True')
+
+
+ 
+
+
+    
+    
+    
+ 
+
+
+
+
+
+
+# class Solution:
+#     def maximumTop(self, nums: list[int], k: int) -> int:
+#         top =-1
+#         flen = len(nums)
+        
+#         for i in range(min(k-1,len(nums))):
+#             if flen==1:
+#                 if k==1:return -1
+#                 else: return (nums[0])
                 
-            top = max(top,nums[0])
-            nums.remove(nums[0])
-            print(top,i,nums) 
-        try:
-            return max(top,nums[0])
-        except IndexError:
-            return top
+#             top = max(top,nums[0])
+#             nums.remove(nums[0])
+#             print(top,i,nums) 
+#         try:
+#             return max(top,nums[0])
+#         except IndexError:
+#             return top
 
-nums =[99,95,68,24,18]
-# nums =[35,43,23,86,23,45,84,2,18,83,79,28,54,81,12,94,14,0,0,29,94,12,13,1,48,85,22,95,24,5,73,10,96,97,72,41,52,1,91,3,20,22,41,98,70,20,52,48,91,84,16,30,27,35,69,33,67,18,4,53,86,78,26,83,13,96,29,15,34,80,16,49]
-k=69
-t = Solution()
-print(t.maximumTop(nums,k))
+# # nums =[35,43,23,86,23,45,84,2,18,83,79,28,54,81,12,94,14,0,0,29,94,12,13,1,48,85,22,95,24,5,73,10,96,97,72,41,52,1,91,3,20,22,41,98,70,20,52,48,91,84,16,30,27,35,69,33,67,18,4,53,86,78,26,83,13,96,29,15,34,80,16,49]
+# nums =[91,98,17,79,15,55,47,86,4,5,17,79,68,60,60,31,72,85,25,77,8,78,40,96,76,69,95,2,42,87,48,72,45,25,40,60,21,91,32,79,2,87,80,97,82,94,69,43,18,19,21,36,44,81,99]
+# k=2
+# t = Solution()
+# print(t.maximumTop(nums,k))
 
 
 
-# k=15
+# k=2
 # top =-1
 # flen = len(nums)
-# for i in range(min(k,len(nums))):
-#     if flen==1:
-#         if k==1:
-#             print(-1)
-#             break
-         
-#         else: 
-#             print(nums[0])
-#             break
+
+# for i in range(min(k-1,len(nums))):
+#     maxi =-1
+#     if (len(nums) == 1) and (k & 1): 
+#         print(-1)
+#         break
         
-#     top = max(top,nums[0])
-#     nums.remove(nums[0])
-#     print(top,i,nums) 
-# print(max(top,nums[0]))
+#     maxi = max(maxi, nums[i])
+
+# if k < len(nums):
+#     maxi = max(maxi, nums[k])
+# print(maxi)
+
+
+    
  
 
       
-
-
-
-
-
-
-
 
 
 
