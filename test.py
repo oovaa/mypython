@@ -1,6 +1,21 @@
-x = 0
-while True:
-  print(x:=x+1)
+s = "Hello how are you Contestant"
+k = 4
+h =s.split()
+h1 =""
+for i in range(k):
+    h1+=s.split()[i]+" "
+print(h1.rstrip)
+
+
+
+    
+    
+ 
+
+
+# x = 0
+# while True:
+#   print(x:=x+1)
   
 # class test:
 #     x =0

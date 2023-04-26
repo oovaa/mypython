@@ -1,15 +1,42 @@
-nums = [1,2,3,4,5]
-# ans = (sum([x for x in nums if nums.count(x)==1]))
-ans = 0 
-for i in nums:
-  if nums.count(i)>1:
-    continue
-  ans+=i
-# return ans
+command = "(al)G(al)()()G"
+print(command :=command.replace('()', 'o'))
+print(command:= command.replace("(",""))
+print(command :=command.replace(")",""))
 
 
-print(ans)
 
+
+# grid = [[9,81],[33,17]]
+
+
+
+# ans =0
+# mh =0
+# for i in grid:
+#   h = max(i)
+#   i.remove(h)
+#   mh = max(h,mh)
+#   ans+=mh
+#   print(h,mh,ans)
+# print(ans)
+
+  
+  
+
+
+
+
+# nums = [1,2,3,4,5]
+# # ans = (sum([x for x in nums if nums.count(x)==1]))
+# ans = 0 
+# for i in nums:
+#   if nums.count(i)>1:
+#     continue
+#   ans+=i
+# # return ans
+
+
+# print(ans)
 
 
 
