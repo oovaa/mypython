@@ -1,15 +1,12 @@
-s = "Hello how are you Contestant"
-k = 4
-h =s.split()
-h1 =""
-for i in range(k):
-    h1+=s.split()[i]+" "
-print(h1.rstrip)
+# s = "Hello how are you Contestant"
+# k = 4
+# h =s.split()
+# h1 =""
+# for i in range(k):
+#     h1+=s.split()[i]+" "
+# print(h1.rstrip)
 
-
-
-    
-    
+ 
  
 
 
