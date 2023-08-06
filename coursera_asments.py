@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 # import json
 # import sqlite3
 
@@ -41,22 +33,22 @@
 #   name = i[0]
 #   title = i[1]
 #   role = i[2]
-  
+
 #   print('name :',name,'title :',title,'role :',role)
-  
-  
+
+
 #   cur.execute('INSERT OR IGNORE INTO User (name) VALUES (?)',(name,))
 #   cur.execute('SELECT  id FROM User WHERE name=?',(name,))
 #   user_id = cur.fetchone()[0]
-  
+
 #   cur.execute('INSERT OR IGNORE INTO Course (title) VALUES (?)',(title,))
 #   cur.execute('SELECT  id FROM Course WHERE title=?',(title,))
 #   course_id = cur.fetchone()[0]
-  
+
 #   cur.execute('INSERT OR IGNORE INTO Member (user_id,course_id,role) VALUES (?,?,?)',(user_id,course_id,role))
-  
-# # cur.executescript('''SELECT User.name,Course.title, Member.role FROM 
-# #     User JOIN Member JOIN Course    fix this and figure out how to use fetchone to print date 
+
+# # cur.executescript('''SELECT User.name,Course.title, Member.role FROM
+# #     User JOIN Member JOIN Course    fix this and figure out how to use fetchone to print date
 # #     ON User.id = Member.user_id AND Member.course_id = Course.id
 # #     ORDER BY User.name DESC, Course.title DESC, Member.role DESC LIMIT 2;''')
 # # data = cur.fetchone()
@@ -66,25 +58,15 @@
 # con.commit()
 
 
-# # SELECT User.name,Course.title, Member.role FROM 
-# #     User JOIN Member JOIN Course 
+# # SELECT User.name,Course.title, Member.role FROM
+# #     User JOIN Member JOIN Course
 # #     ON User.id = Member.user_id AND Member.course_id = Course.id
 # #     ORDER BY User.name DESC, Course.title DESC, Member.role DESC LIMIT 2;
 
-# # SELECT 'XYZZY' || hex(User.name || Course.title || Member.role ) AS X FROM 
-# #     User JOIN Member JOIN Course 
+# # SELECT 'XYZZY' || hex(User.name || Course.title || Member.role ) AS X FROM
+# #     User JOIN Member JOIN Course
 # #     ON User.id = Member.user_id AND Member.course_id = Course.id
 # #     ORDER BY X LIMIT 1;
-
-
-
-
-
-
-
-
-
-
 
 
 # import xml.etree.ElementTree as et
@@ -93,13 +75,13 @@
 # con = sqlite3.connect('trackdbassment.sqlite')
 # cur = con.cursor()
 # cur.executescript('''
-                  
+
 #  DROP TABLE IF EXISTS Artist;
 #  DROP TABLE IF EXISTS Album;
-#  DROP TABLE IF EXISTS Track;          
-#  DROP TABLE IF EXISTS Genre;          
-                  
-                  
+#  DROP TABLE IF EXISTS Track;
+#  DROP TABLE IF EXISTS Genre;
+
+
 # CREATE TABLE Artist (
 #     id  INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 #     name    TEXT UNIQUE
@@ -117,7 +99,7 @@
 # );
 
 # CREATE TABLE Track (
-#     id  INTEGER NOT NULL PRIMARY KEY 
+#     id  INTEGER NOT NULL PRIMARY KEY
 #         AUTOINCREMENT UNIQUE,
 #     title TEXT  UNIQUE,
 #     album_id  INTEGER,
@@ -142,45 +124,26 @@
 #   rating = look(i,'Rating')
 #   length = look(i,'Total Time')
 #   Genre = look(i,'Genre')
-  
+
 #   if name is None or artist is None or album is None or Genre is None: continue
-  
+
 #   print(name,artist,album,count,length,Genre,rating)
-  
+
 #   cur.execute('INSERT OR IGNORE INTO Artist (name) VALUES (?)',(name,))
 #   cur.execute('SELECT  id FROM Artist WHERE name=?',(name,))
 #   artist_id = cur.fetchone()[0]
-  
+
 #   cur.execute('INSERT OR IGNORE INTO Genre (name) VALUES (?)',(Genre,))
 #   cur.execute('SELECT  id FROM Genre WHERE name=?',(Genre,))
 #   genre_id = cur.fetchone()[0]
-  
+
 #   cur.execute('INSERT OR IGNORE INTO Album (title,artist_id) VALUES (?,?)',(album,artist_id))
 #   cur.execute('SELECT  id FROM Album WHERE title=?',(album,))
 #   album_id = cur.fetchone()[0]
-  
+
 #   cur.execute('INSERT OR IGNORE INTO Track (title,album_id,genre_id,len,rating,count) VALUES (?,?,?,?,?,?)',(name,album_id,genre_id,length,rating,count))
-  
+
 #   con.commit()
-
-
-
-
-
-
-
-
-
-
-
-  
- 
-
-
-
-
-
-
 
 
 # import xml.etree.ElementTree as et
@@ -209,9 +172,9 @@
 #   albumId INTEGER ,
 #   title TEXT UNIQUE,
 #   len INTEGER,rating INTEGER , count INTEGER
- 
+
 #   );
-  
+
 #             ''')
 # fname = 'Library.xml'
 
@@ -220,7 +183,7 @@
 #     for child in d:
 #         if found : return child.text
 #         if child.tag == 'key' and child.text == key :found = True
-        
+
 #     return None
 
 # shit = et.parse(fname)
@@ -239,7 +202,7 @@
 
 #   if name is None or artist is None or album is None :continue
 #   print(name,artist,album,count,rating,length)
-  
+
 #   cur.execute('INSERT OR IGNORE INTO Artist (name) VALUES (?)',(artist,))
 #   cur.execute('SELECT id FROM Artist WHERE name=?',(artist,))
 #   artistID = cur.fetchone()[0]
@@ -248,11 +211,8 @@
 #   albumId = cur.fetchone()[0]
 #   cur.execute('INSERT OR REPLACE INTO Track (title,albumId,len,rating,count ) VALUES (?,?,?,?,?)',(name,albumId,length,rating,count))
 #   con.commit()
-  
-  # SELECT Track.title , Album.title, Artist.name FROM Track join Album JOIN Artist on Track.albumId = Album.id AND Album.artistId = Artist.id
 
-
-
+# SELECT Track.title , Album.title, Artist.name FROM Track join Album JOIN Artist on Track.albumId = Album.id AND Album.artistId = Artist.id
 
 
 # import sqlite3
@@ -277,27 +237,21 @@
 #     cur.execute('INSERT INTO Counts (org,count) VALUES (?,1)',(org,))
 #   else:
 #     cur.execute('UPDATE Counts  SET count=count +1 WHERE org=?',(org,))
-# con.commit() 
-  
+# con.commit()
+
 # sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
 
 # for row in cur.execute(sqlstr):
 #     print(str(row[0]), row[1])
-    
+
 # cur.execute('DELETE FROM Counts')
 # cur.close()
- 
 
 
-
-
-
-
-
-# In this assignment you will write a Python program somewhat 
-# similar to http://www.py4e.com/code3/geojson.py. The program 
-# will prompt for a location, contact a web service and retrieve 
-# JSON for the web service and parse that data, and retrieve the 
+# In this assignment you will write a Python program somewhat
+# similar to http://www.py4e.com/code3/geojson.py. The program
+# will prompt for a location, contact a web service and retrieve
+# JSON for the web service and parse that data, and retrieve the
 # first place_id from the JSON. A place ID is a textual identifier
 # that uniquely identifies a place as within Google Maps.
 
@@ -322,8 +276,6 @@
 # print('place_id :',js['results'][0]['place_id'])
 
 
-
-
 # import urllib.request, urllib.parse, urllib.error
 # import json
 # import ssl
@@ -339,8 +291,6 @@
 #     serviceurl = 'http://py4e-data.dr-chuck.net/json?'
 # else :
 #     serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
-
-
 
 
 # address = input('Enter location: ')
@@ -362,7 +312,7 @@
 #     print('==== Failure To Retrieve ====')
 #     print(data)
 #     exit()
-    
+
 # # print(json.dumps(js, indent=4))
 # lat = js['results'][0]['geometry']['location']['lat']
 # lng = js['results'][0]['geometry']['location']['lng']
@@ -373,18 +323,13 @@
 # print('place_id :', js['results'][0]['place_id'])
 
 
-
 # International Institute of Information Technology Hyderabad
 
 
-
-
-
-
-# In this assignment you will write a Python program somewhat similar 
+# In this assignment you will write a Python program somewhat similar
 # to http://www.py4e.com/code3/json2.py. The program will prompt for a
 # URL, read the JSON data from that URL using urllib and then parse and
-# extract the comment counts from the JSON data, compute the sum of the 
+# extract the comment counts from the JSON data, compute the sum of the
 # numbers in the file and enter the sum below:
 
 # import urllib.request as ur
@@ -397,11 +342,6 @@
 # for i in jd:
 #   sum+=i['count']
 # print(sum)
- 
-
-
-
-
 
 
 # import urllib.request as ur
@@ -419,10 +359,6 @@
 # for i in counts:
 #  sum+=int(i.text)
 # print('sum:',sum)
-
-
-
-
 
 
 # data = '''<commentinfo>
@@ -640,10 +576,9 @@
 # print((ls))
 
 # sum =0
-# for i in ls: 
+# for i in ls:
 #     sum +=int(i)
 # print(sum)
-
 
 
 # To run this, download the BeautifulSoup zip file
@@ -666,8 +601,8 @@
 #   html = urllib.request.urlopen(url, context=ctx).read()
 #   soup = BeautifulSoup(html, 'html.parser')
 #   print(html)
-  
-  
+
+
 #   # Retrieve all of the anchor tags
 #   tags = soup('a')
 #   ll =list()
@@ -680,11 +615,6 @@
 # Actual problem: Start at: http://py4e-data.dr-chuck.net/known_by_Taira.html
 # Find the link at position 18 (the first name is 1). Follow that link. Repeat this process 7 times. The answer is the last name that you retrieve.
 # Hint: The first character of the name of the last page that you will load is: E
-
-
-
-
-
 
 
 # # To run this, download the BeautifulSoup zip file
@@ -717,7 +647,6 @@
 # print(c)
 
 
-
 # import socket
 
 # mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -730,11 +659,8 @@
 #     if len(data) < 1:
 #         break
 #     print(data.decode(),end='')
-    
+
 # mysock.close()
-
-
-
 
 
 # In this assignment you will read through and parse a
@@ -747,7 +673,7 @@
 # for i in f:
 #   h = re.findall('[0-9]+',i)
 #   h1.extend(h)
-  
+
 # sh =0
 # for i in h1:
 #   sh += int(i)
@@ -755,11 +681,6 @@
 # print(sh)
 
 # print(sum([ i for i  in f'[0-9]+',**************************.read()) ] ) )
-
- 
-
- 
-
 
 
 # s = " omer 12 in 2003 learning py3a"
@@ -771,17 +692,11 @@
 # print(h1)
 
 
-
-
-
-
-
-
 # 10.2 Write a program to read through the
 # mbox-short.txt and figure out the distribution
 # by hour of the day for each of the messages.
 # You can pull the hour out from the 'From '
-# line by finding the time and then splitting 
+# line by finding the time and then splitting
 # the string a second time using a colon.
 # From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008
 # Once you have accumulated the counts for each hour,
@@ -799,22 +714,20 @@
 #     if count%2==1:
 #       hold = line.split()[5].split(':')[0]
 #       dh[hold] = dh.get(hold,0)+1
-      
+
 # dh =sorted(dh.items())
 # for k,v in dh:
 #   print(k,v)
-  
-     
- 
+
 
 # 9.4 Write a program to read through the mbox-short.
 # txt and figure out who has sent the greatest number of mail messages.
-# The program looks for 'From ' lines and takes the second word 
-# of those lines as the person who sent the mail. The program 
-# creates a Python dictionary that maps the sender's mail 
-# address to a count of the number of times they appear in 
-# the file. After the dictionary is produced, the program 
-# reads through the dictionary using a maximum loop to find 
+# The program looks for 'From ' lines and takes the second word
+# of those lines as the person who sent the mail. The program
+# creates a Python dictionary that maps the sender's mail
+# address to a count of the number of times they appear in
+# the file. After the dictionary is produced, the program
+# reads through the dictionary using a maximum loop to find
 # the most prolific committer.
 
 # name = input("Enter file:")
@@ -828,8 +741,6 @@
 #     emaild[line.split()[1]] = emaild.get(line.split()[1],0)+1
 # sed = sorted(emaild.items(), key=lambda x : x[1], reverse=True) #cool asf
 # print(sed[0][0],int(sed[0][1]/2))
-    
-
 
 
 # 8.5 Open the file mbox-short.txt and read it line by line.
@@ -838,7 +749,7 @@
 # You will parse the From line using split() and print out the second word
 # in the line (i.e. the entire address of the person who sent the message).
 # Then print out a count at the end.
-# Hint: make sure not to include the lines that start with 'From:'. 
+# Hint: make sure not to include the lines that start with 'From:'.
 # Also look at the last line of the sample output to see how to print the count.
 # You can download the sample data at http://www.py4e.com/code3/mbox-short.txt
 
@@ -852,27 +763,23 @@
 # for i in fh:
 #   if not i.startswith('From'):
 #     continue
- 
+
 #   cn2+=1
 #   if cn2%2==0:
 #    continue
- 
+
 #   print(i.rstrip().split()[1])
 #   count+=1
 
 # print("There were", count, "lines in the file with From as the first word")
 
 
-
-
-
-
 # 8.4 Open the file romeo.txt and read it line by line.
 # For each line, split the line into a list of words using the split()
 # method. The program should build a list of words.
-# For each word on each line check to see if the word is 
+# For each word on each line check to see if the word is
 # already in the list and if not append it to the list.
-# When the program completes, sort and print the resulting 
+# When the program completes, sort and print the resulting
 # words in python sort() order as shown in the desired output.
 # You can download the sample data at http://www.py4e.com/code3/romeo.txt
 
@@ -887,7 +794,6 @@
 # lst.sort()
 # print(lst)
 
- 
 
 # 7.2 Write a program that prompts for a file name,
 # then opens that file and reads through the file,
@@ -897,7 +803,7 @@
 # each of the lines and compute the average of those values
 # and produce an output as shown below. Do not use the sum()
 # function or a variable named sum in your solution.
-# You can download the sample data at http://www.py4e.com/code3/mbox-short.txt 
+# You can download the sample data at http://www.py4e.com/code3/mbox-short.txt
 # when you are testing below enter mbox-short.txt as the file name.
 
 # Use the file name mbox-short.txt as the file name
@@ -913,9 +819,8 @@
 # print('Average spam confidence:',hold/count)
 
 
-
 # 7.1 Write a program that prompts for a file name,
-# then opens that file and reads through the file, 
+# then opens that file and reads through the file,
 # and print the contents of the file in upper case.
 # Use the file words.txt to produce the output below.
 
@@ -931,25 +836,24 @@
 # while True:
 #     num = (input("Enter a number: "))
 #     if num == "done":
-#         break  
+#         break
 #     try:
-#      num= int(num)   
+#      num= int(num)
 #     except:
 #       print('Invalid input')
 #       continue
 #     if largest is None:
 #      largest = num
 #     elif largest < num:
-#      largest =num   
+#      largest =num
 #     if smallest is None:
 #       smallest = num
 #     elif smallest >num:
 #       smallest = num
 
-     
+
 # print("Maximum is", int(largest))
 # print("Minimum is",  int(smallest))
-
 
 
 # 4.6 def computepay(h, r):
@@ -982,19 +886,19 @@
 
 
 # 6.5  Write code using find() and string slicing (see section 6.10) to
-#   extract the number at the end of the line below. Convert the extracted 
+#   extract the number at the end of the line below. Convert the extracted
 #   value to a floating point number and print it out.
 # text = "X-DSPAM-Confidence:    0.8475"
 # print(float(text[text.find("0"):]))
 
-  
-  # 3.1 Write a program to prompt the user for hours 
-  # and rate per hour using input to compute gross pay.
-  # Pay the hourly rate for the hours up to 40 and 1.5 times the hourly rate for all hours worked above 40 hours.
-  # Use 45 hours and a rate of 10.50 per hour to test the program (the pay should be 498.75).
-  # You should use input to read a string and float() to convert the string to a number.
-  # Do not worry about error checking the user input -
-  # assume the user types numbers properly.
+
+# 3.1 Write a program to prompt the user for hours
+# and rate per hour using input to compute gross pay.
+# Pay the hourly rate for the hours up to 40 and 1.5 times the hourly rate for all hours worked above 40 hours.
+# Use 45 hours and a rate of 10.50 per hour to test the program (the pay should be 498.75).
+# You should use input to read a string and float() to convert the string to a number.
+# Do not worry about error checking the user input -
+# assume the user types numbers properly.
 # hrs = input("Enter Hours:")
 # h = float(hrs)
 # rate = input("Enter rate:")

@@ -6,28 +6,22 @@
 #     h1+=s.split()[i]+" "
 # print(h1.rstrip)
 
- 
- 
-
 
 # x = 0
 # while True:
 #   print(x:=x+1)
-  
+
 # class test:
 #     x =0
 #     def add(self,am : int)-> str:
 #      self.x+=am
 #      return self.x
- 
+
 # o = test()
 # a = test()
 # o.x=10
 
 # print(type(o.add(11)))
-
-
-
 
 
 # ff = open('romeo.txt').read()
@@ -44,7 +38,6 @@
 # print(ord('y'))
 
 
-
 # import time
 
 # print(time.ctime(time.time())) #current time
@@ -52,10 +45,6 @@
 # t= time.localtime()
 # tt= time.strftime("%p %I:%M:%S ",t)
 # print(tt)
-
-
-
-
 
 
 # l1 = list(range(0,11))
@@ -67,8 +56,6 @@
 
 # for i in z.items():
 #  print(i,end=" ")
-
-
 
 
 # a = dict([ ('brand', 1),  ('model', 3),(  'year',5)])
@@ -104,10 +91,6 @@
 # print(c)
 
 
-
-
-
-
 # a = {
 #   'brand': 'Ford',test.py
 #   'model': 'Mustang',
@@ -117,7 +100,7 @@
 
 # print(a)
 # a=sorted(a.items(), key=lambda x: x[1][len(x[1])-2])
-# print(a) 
+# print(a)
 
 # print(bool('omer'[4:]))
 
@@ -135,7 +118,7 @@
 # class check:
 #     def walk(self):
 #      print('this check is walking')
-      
+
 # def ww(duck:duck):
 #  duck.walk()
 
@@ -144,13 +127,12 @@
 # ww(c)#???
 
 
-
 # class car:
 #     color = None
-    
+
 # def chcolor(car,color):
 #  car.color = color
- 
+
 # c1 = car()
 # c2 = car()
 # c3 = car()
@@ -165,23 +147,21 @@
 # print(c3.color)
 
 
-
-
 # from abc import ABC, abstractmethod
 
 
 # class omer.(ABC):
 #     @abstractmethod
 #     def name(name, lastName='john'):
-#         pass   
-     
+#         pass
+
 #     def hah(self):
 #      print('haha')
-     
+
 # class t(omer):
 #     def name(name, lastName='john'):
 #         print('hi',name,lastName)
-         
+
 # o = t()
 # o.hah()
 
@@ -203,7 +183,6 @@
 #         print('Hello, how are you?')
 
 
-
 # m = man('omar',12,'mail')
 # m.say_hi()
 
@@ -211,29 +190,28 @@
 #   alive = True
 #   def flee(self):
 #    print('this animal flees ')
-   
+
 # class predetor():
 #   def hunt(self):
 #    print('this animal hunts')
 
-   
-# class fish(predetor,prey):   
+
+# class fish(predetor,prey):
 #   pass
 # f = fish()
 # f.flee()
 # f.hunt()
 
 
-
-# class car: 
+# class car:
 #   hh =55
 #   def __init__(self, name, year):
 #      self.name = name
 #      self.year = year
-     
-#   def drive(self): 
+
+#   def drive(self):
 #    print('this',self.name,'is moving')
-   
+
 # c = car('bmw',2022)
 # c.hh =1
 # car.hh =44
@@ -255,29 +233,29 @@
 #    correct+= check(quts.get(k),gus)
 #    qnum+=1
 #  showScore(correct,gusses)
-   
+
 # def check(ans,gus)->int:
 #   if ans == gus:
 #     print('correct :)')
 #     return 1
 #   else:
 #     print('Wrong :(')
-#     return 0 
- 
+#     return 0
+
 # def showScore(correct,gusses):
 #  print('answers :',end=' ')
 #  for i in quts:
 #   print(quts.get(i),end=' ')
 #  print()
- 
+
 #  print('guesses :',end=' ')
 #  for i in gusses:
 #   print(i,end=' ')
 #  print()
- 
+
 #  score = int(correct/len(quts)*100)
 #  print('your score is', str(score)+'%')
-  
+
 # def playAgain():
 #  res = input('wanna play again ? (y/n)').lower()
 #  if res == 'y':
@@ -301,12 +279,10 @@
 # print('\nByeeeee')
 
 
-
-
 # class test:
 #   def __init__(self, age):
 #     self.age = age
-  
+
 #   def add(self)-> int:
 #       return self.age+10
 
@@ -318,7 +294,6 @@
 #           continue
 
 # print(test.add(omer))
-
 
 
 # def romanToInt(s: str) -> int:
@@ -334,22 +309,22 @@
 #     j=1
 #     while j < len(s):
 #       if val[s[j]]>val[s[i]]:
-#           ans +=val[s[j]]-val[s[i]] 
+#           ans +=val[s[j]]-val[s[i]]
 #           j+=2
 #           i+=2
 #       else:
 #           ans +=val[s[i]]
 #           i+=1
 #           j+=1
-    
+
 #     return ans
-          
-    
+
+
 # print(romanToInt("III"))
 
 # import shutil
 # shutil.copy2('romeo.txt','tata.txt')
- 
+
 # ff = open('romeo.txt','a')
 # ff.write('yyyyooooo\nim ommmmer')
 
@@ -359,7 +334,7 @@
 #   print('it is here')
 # else:
 #     print('it is not here')
-  
+
 
 # import random as r
 # ls = ['sci','paper']
@@ -382,13 +357,13 @@
 # print(td.get('ss',0))
 
 # ls = list(x+10 for x in td.values() if x>17)
-#print(ls)
-   
- 
+# print(ls)
+
+
 # class test:
 #   def __init__(self, age):
 #     self.age = age
-  
+
 #   def add(self)-> int:
 #       return self.age+10
 
@@ -409,17 +384,17 @@
 #     j=1
 #     while j < len(s):
 #       if val[s[j]]>val[s[i]]:
-#           ans +=val[s[j]]-val[s[i]] 
+#           ans +=val[s[j]]-val[s[i]]
 #           j+=2
 #           i+=2
 #       else:
 #           ans +=val[s[i]]
 #           i+9=1
 #           j+=1
-    
+
 #     return ans
-          
-    
+
+
 # print(romanToInt("III"))
 
 # def add(a:int,c:int)->any:
@@ -437,13 +412,13 @@
 # print(td.get('ss',0))
 
 # ls = list(x+10 for x in td.values() if x>17)
-#print(ls)
-   
- 
+# print(ls)
+
+
 # class test:
 #   def __init__(self, age):
 #     self.age = age
-  
+
 #   def add(self)-> int:
 #       return self.age+10
 
@@ -464,21 +439,18 @@
 #     j=1
 #     while j < len(s):
 #       if val[s[j]]>val[s[i]]:
-#           ans +=val[s[j]]-val[s[i]] 
+#           ans +=val[s[j]]-val[s[i]]
 #           j+=2
 #           i+=2
 #       else:
 #           ans +=val[s[i]]
 #           i+9=1
 #           j+=1
-    
+
 #     return ans
-          
-    
+
+
 # print(romanToInt("III"))
-
-
-
 
 
 # def isPalindrome(x: int) -> bool:
@@ -503,15 +475,13 @@
 #        if j != i and nums[i]+ nums[j] == target:
 #          hold.append(i)
 #          hold.append(j)
-#          return hold 
+#          return hold
 #        j+=1
 #     i+=1
-         
+
 # ls = [3,2,4]
 # t=6
 # print(twoSum(4,ls,t))
-
-
 
 
 # t=int(input('enter fb rank :'))
@@ -520,14 +490,13 @@
 # for i in range(t):
 #     a=b
 #     b=x
-#     x=a+b  
+#     x=a+b
 #     print(x)
-
 
 
 # import random
 # import string
- 
+
 # chars = string.punctuation+string.digits+string.ascii_letters+" "
 # ls = list(chars)
 # key = ls.copy()
@@ -539,7 +508,7 @@
 # for l in mes:
 #     ind = ls.index(l)
 #     inmes += key[ind]
- 
+
 # print(inmes)
 
 # #decrept
@@ -548,11 +517,8 @@
 # for l in inmes:
 #     ind = key.index(l)
 #     mes += ls[ind]
- 
+
 # print(mes)
-
-
-
 
 
 # fh = open('mbox-short.txt')
@@ -560,14 +526,14 @@
 # for i in fh:
 #     for li in i.split():
 #        dh[li] = dh.get(li,0)+1
-       
+
 # mw , mc =None,None
 # for k ,v in dh.items():
 #     if mc is None or v > mc and k != "jan":
 #         mc = v
 #         mw= k
 # print(mw,mc)
-      
+
 # val = sorted(dh.items(),key=lambda x : x[1], reverse=True)
 # print(val[1])
 
