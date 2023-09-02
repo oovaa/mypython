@@ -11,8 +11,7 @@ class linkedlist:
       pass
     
     def add(val):
-        
         Node newn = Node(val)
         
         if self.first is None:
-          self.first = newn
+           self.first = newn
