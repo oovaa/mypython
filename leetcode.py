@@ -1,3 +1,28 @@
+w = input("enter words: ")
+
+s = ""
+w =sorted( w.split(" "))
+
+for i in (w):
+	if i not in s:
+		s += " " + i
+s = s.lstrip()
+
+print(s)
+
+
+# lines = []
+
+# print("hit enter to break")
+
+# while True:
+#     lin = input()
+
+#     if not lin:
+#         break
+#     lines.append(lin.upper())
+
+# print("\n".join(lines))
 
 
 # words = input("enter words ").split(",")
