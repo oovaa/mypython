@@ -1,13 +1,70 @@
-command = "(al)G(al)()()G"
-print(command :=command.replace('()', 'o'))
-print(command:= command.replace("(",""))
-print(command :=command.replace(")",""))
 
 
+# words = input("enter words ").split(",")
+# words.sort()
+# print(" | ".join(words).split("|"))
+
+
+# strin = input("enter num ").split(",")
+# x = int(strin[0])
+# y = int(strin[1])
+
+# arr = []
+
+# for i in range(1, x + 1):
+#     inerarr = []
+#     for j in range(1, y + 1):
+#         inerarr.append(i * j)
+#     arr.append(inerarr)
+
+# print(arr)
+
+
+# from math import sqrt
+
+# c = 50
+# h = 30
+# d = input("enter d plz: ")
+
+# ins = d.split(",")
+
+# for i in range(len(ins)):
+#     q = int(sqrt((2 * c * int(ins[i])) / h))
+#     ins[i] = str(q)
+
+# print(','.join(ins))
+
+
+# class man:
+#     s = ""
+#     def getString(self):
+#         self.s = input("enter something: ")
+
+
+#     def printString(self):
+#         if " " in  self.s:
+#             self.s= self.s[:self.s.index(" ")]
+#         print(self.s.upper())
+
+# mna = man()
+# mna.getString()
+# mna.printString()
+
+# values = input("enter values: ")
+
+# ll = values.split(",")
+# tt = tuple(ll)
+
+# print(ll)
+# print(tt)
+
+# command = "(al)G(al)()()G"
+# print(command :=command.replace('()', 'o'))
+# print(command:= command.replace("(",""))
+# print(command :=command.replace(")",""))
 
 
 # grid = [[9,81],[33,17]]
-
 
 
 # ans =0
@@ -20,15 +77,10 @@ print(command :=command.replace(")",""))
 #   print(h,mh,ans)
 # print(ans)
 
-  
-  
-
-
-
 
 # nums = [1,2,3,4,5]
 # # ans = (sum([x for x in nums if nums.count(x)==1]))
-# ans = 0 
+# ans = 0
 # for i in nums:
 #   if nums.count(i)>1:
 #     continue
@@ -39,22 +91,20 @@ print(command :=command.replace(")",""))
 # print(ans)
 
 
-
-
 # class Solution:
 #     def isIsomorphic(self, s: str, t: str) -> bool:
 #         if set(list(s))!=set((list(t))):
 #           return False
 #         hold = dict()
-#         for i in enumerate(s): 
+#         for i in enumerate(s):
 #             if hold.get(i[1]) is None: hold[i[1]] = t[i[0]]
 #         for i in enumerate(s):
 #             # print(hold[i[1]],t[i[0]])
 #             if hold[i[1]] != t[i[0]]:
 #               return False
 #         return True
-        
-    
+
+
 # ans = True
 # s = "badc"
 # t = "baba"
@@ -63,8 +113,8 @@ print(command :=command.replace(")",""))
 
 # # s = "egg"
 # # t = "add"
-    
-    
+
+
 # map1 = []
 # map2 = []
 # for idx in s:
@@ -78,20 +128,11 @@ print(command :=command.replace(")",""))
 # print()
 # print(map1)
 # print(map2)
-    
+
 # print(z:=set(zip(s,t)))
-  
+
 # ans = [x[0] for x in z]
 # print((ans))
-
-
-
-
-
-
-
- 
-
 
 
 # for i in enumerate(s):
@@ -102,32 +143,19 @@ print(command :=command.replace(")",""))
 #     print('True')
 
 
- 
-
-
-    
-    
-    
- 
-
-
-
-
-
-
 # class Solution:
 #     def maximumTop(self, nums: list[int], k: int) -> int:
 #         top =-1
 #         flen = len(nums)
-        
+
 #         for i in range(min(k-1,len(nums))):
 #             if flen==1:
 #                 if k==1:return -1
 #                 else: return (nums[0])
-                
+
 #             top = max(top,nums[0])
 #             nums.remove(nums[0])
-#             print(top,i,nums) 
+#             print(top,i,nums)
 #         try:
 #             return max(top,nums[0])
 #         except IndexError:
@@ -140,31 +168,21 @@ print(command :=command.replace(")",""))
 # print(t.maximumTop(nums,k))
 
 
-
 # k=2
 # top =-1
 # flen = len(nums)
 
 # for i in range(min(k-1,len(nums))):
 #     maxi =-1
-#     if (len(nums) == 1) and (k & 1): 
+#     if (len(nums) == 1) and (k & 1):
 #         print(-1)
 #         break
-        
+
 #     maxi = max(maxi, nums[i])
 
 # if k < len(nums):
 #     maxi = max(maxi, nums[k])
 # print(maxi)
-
-
-    
- 
-
-      
-
-
-
 
 
 # from datetime import datetime
@@ -179,10 +197,7 @@ print(command :=command.replace(")",""))
 #                 s=i+duration-s
 #         return s
 
-        
- 
-        
-        
+
 # start_time = datetime.now()
 # s = Solution()
 # print(s.findPoisonedDuration([1,4],2))
@@ -201,10 +216,8 @@ print(command :=command.replace(")",""))
 #     elif i <=s:
 #         print(s)
 #         s=i+d-1
-         
-# print(s)
-    
 
+# print(s)
 
 
 # a = [3,4]
@@ -213,19 +226,16 @@ print(command :=command.replace(")",""))
 # print(a)
 
 
-    
 # x= [1,1,4,6,8,8,8,4,2]
 # print(len(set(x)))
 # print(list(dict.fromkeys(x)))
 
 
-
-
 # class Solution:
 #     def removeOccurrences(self, s: str, part: str) -> str:
 #         pass
-    
-    
+
+
 # t = Solution()
 # s = "axxxxyyyyb"
 # part = "xy"
@@ -241,5 +251,3 @@ print(command :=command.replace(")",""))
 #     s=x
 
 # print(s)
-
-
