@@ -1,14 +1,100 @@
-w = input("enter words: ")
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ns = [x**2 if x %2 != 0 else None for x in l]
+print(ns)
 
-s = ""
-w =sorted( w.split(" "))
+# exlain
 
-for i in (w):
-	if i not in s:
-		s += " " + i
-s = s.lstrip()
+# a = input()
+# n1 = int( "%s" % a )
+# n2 = int( "%s%s" % (a,a) )
+# n3 = int( "%s%s%s" % (a,a,a) )
+# n4 = int( "%s%s%s%s" % (a,a,a,a) )
+# print(n1+n2+n3+n4)
 
-print(s)
+
+# s = input()
+# d = dict()
+
+# for c in s:
+#     if c.isupper():
+#         d["UPPER CASE"] = d.get("UPPER CASE", 0) + 1
+#     elif c.islower():
+#         d["LOWER CASE"] = d.get("LOWER CASE", 0) + 1
+#     else:
+#         pass
+# print("UPPER CASE", d["UPPER CASE"])
+# print("LOWER CASE", d["LOWER CASE"])
+
+# stat = input("enter statment: ")
+
+# c = 0
+# l = 0
+
+# for i in stat:
+#     if i.isupper():
+#         c += 1
+#     if i.islower():
+#         l += 1
+
+# print(c, l)
+
+
+# stat = input("enter words: ")
+
+# d, l = 0, 0
+
+# for i in stat:
+#     if i.isdigit():
+#         d += 1
+#     elif i.isalpha():
+#         l += 1
+# print("LETTERS", d, "DIGITS", l)
+
+
+# def checkeven(n: int):
+#     if n == 0:
+#         return 1
+
+#     if n % 2 == 0:
+#         return checkeven(n // 10)  # Return the result of the recursive call
+#     else:
+#         return 0
+
+# # print(checkeven(246))
+
+# for i in range(0, 10000):
+#     if checkeven(i):
+#         print(i)
+
+
+# num = input("enter 4 didgts num: ")
+# num = num.split(",")
+
+# sum = 0
+
+# for i in num:
+#     i = int(i, 2)
+#     if i % 5 == 0:
+#         print(i)
+#     sum += i
+#     print(sum)
+
+
+# p = 111
+# print(int(str(p), 2))
+
+
+# w = input("enter words: ")
+
+# s = ""
+# w =sorted( w.split(" "))
+
+# for i in (w):
+# 	if i not in s:
+# 		s += " " + i
+# s = s.lstrip()
+
+# print(s)
 
 
 # lines = []
