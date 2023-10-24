@@ -1,15 +1,101 @@
-l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-ns = [x**2 if x %2 != 0 else None for x in l]
-print(ns)
+from operator import itemgetter
 
-# exlain
 
-# a = input()
-# n1 = int( "%s" % a )
-# n2 = int( "%s%s" % (a,a) )
-# n3 = int( "%s%s%s" % (a,a,a) )
-# n4 = int( "%s%s%s%s" % (a,a,a,a) )
-# print(n1+n2+n3+n4)
+full = input("enter: ")
+full = full.split(" ")
+
+l = [tuple(x.split(",")) for x in full]
+
+print(sorted(l, key=itemgetter(0,1,2)))
+
+# print(sorted(l, key=itemgetter(0, 1, 2)))
+
+# print(l)
+
+
+# from re import *
+
+# value = []
+# items = [x for x in input().split(",")]
+# for p in items:
+#     if len(p) < 6 or len(p) > 12:
+#         continue
+#     else:
+#         pass
+#     if not search("[a-z]", p):
+#         continue
+#     elif not search("[0-9]", p):
+#         continue
+#     elif not search("[A-Z]", p):
+#         continue
+#     elif not search("[$#@]", p):
+#         continue
+#     elif search("\s", p):
+#         continue
+#     else:
+#         pass
+#     value.append(p)
+# print(",".join(value))
+
+
+# paswd = input("enter passwd: ")
+
+# lowe = 0
+# upper = 0
+# digit = 0
+# hash = 0
+
+# if len(paswd) > 12 or len(paswd) < 6:
+#     exit("invalid lenguth 6-12")
+
+# for i, v in enumerate(paswd):
+#     if v.isdigit():
+#         digit += 1
+#     elif v.isupper():
+#         upper += 1
+#     elif v.islower():
+#         lowe += 1
+#     elif v in "@#$":
+#         hash += 1
+
+# if lowe != 0 and upper != 0 and digit != 0 and hash != 0:
+#     print("valid:", paswd)
+#     exit(0)
+# else:
+#     print("invalid:", paswd)
+#     exit(0)
+
+
+# fullin = input("enter: ")
+
+# sin = fullin.split(" ")
+
+# sin = sin[:-1]
+# # sin.pop() the same
+
+# print(sin)
+# amount = 0
+
+# for i, v in enumerate(sin):
+#     if v == "D":
+#         amount += int(sin[i + 1])
+#     elif v == "W":
+#         amount -= int(sin[i + 1])
+
+# print(amount)
+
+
+# l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+# ns = [x**2 if x %2 != 0 else x for x in range(0, 101)]
+# print(ns)
+
+# exlpain
+# Take input as a single digit
+# a = input("Enter a single digit: ")
+
+# # Use the given formula to compute the result
+# result = int(a) + int(a*2) + int(a*3) + int(a*4)
+# print(result)
 
 
 # s = input()

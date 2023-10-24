@@ -14,7 +14,12 @@
 			"path": "leetcode.py",
 			"bookmarks": [
 				{
-					"line": 321,
+					"line": 73,
+					"column": 20,
+					"label": ""
+				},
+				{
+					"line": 407,
 					"column": 31,
 					"label": ""
 				}
