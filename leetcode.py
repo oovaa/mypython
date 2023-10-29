@@ -1,12 +1,76 @@
-from operator import itemgetter
+def maxProfit(prices: list[int]) -> int:
+    cp = prices[0]
+    tot = 0
+
+    for i in range(len(prices) - 1):
+        
+        if prices[i] > prices[i + 1]:
+            tot += prices[i] - cp
+            cp = prices[i + 1]
+            
+    tot += max(0, prices[-1] - cp)
+    return tot
 
 
-full = input("enter: ")
-full = full.split(" ")
+prices = [1, 2, 3, 0, 2]
 
-l = [tuple(x.split(",")) for x in full]
+print(maxProfit(prices))
 
-print(sorted(l, key=itemgetter(0,1,2)))
+# def intersection(nums1: list[int], nums2: list[int]) -> list[int]:
+#     return list(set(nums1).intersection(set(nums2)))
+
+
+# nums1 = [1, 2, 2, 1]
+# nums2 = [2, 2]
+
+# print(intersection(nums1, nums2))
+
+
+# def isPowerOfThree(n: int) -> bool:
+#     i = 1
+#     if n == 1:
+#         return True
+
+#     while i < n / 2:
+#         if 3**i == n:
+#             return True
+#         elif 3**i > n:
+#             return False
+#         i += 1
+
+
+# print(isPowerOfThree(1))
+
+
+# def isThree(n: int) -> bool:
+#     divs = 1
+#     for i in range(2, n + 1):
+#         if n % i == 0:
+#             divs += 1
+#     return divs == 3
+
+# print(isThree(9))
+
+
+# def mag(n: int):
+#     for i in range(n):
+#         if i % 7 == 0:
+#             yield i
+
+# l = list(mag(199))
+
+# print(l)
+
+
+# from operator import itemgetter
+
+
+# full = input("enter: ")
+# full = full.split(" ")
+
+# l = [tuple(x.split(",")) for x in full]
+
+# print(sorted(l, key=itemgetter(0,1,2)))
 
 # print(sorted(l, key=itemgetter(0, 1, 2)))
 
