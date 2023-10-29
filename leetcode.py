@@ -1,3 +1,29 @@
+import math 
+pos = [0, 0]
+
+moves = input().split(" ")
+
+for i, v in enumerate(moves):
+    if v[0] == "U":
+        pos[0] += int(moves[i + 1])
+    elif v[0] == "D":
+        pos[0] -= int(moves[i + 1])
+
+    elif v[0] == "L":
+        pos[1] -= int(moves[i + 1])
+    elif v[0] == "R":
+        pos[1] += int(moves[i + 1])
+
+dis = round(math.sqrt(pos[0] **2 + pos[1] **2))
+print("dis is", dis)
+
+
+
+print(moves)
+print(pos)
+
+
+
 # You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
 # Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restrictions:
@@ -6,36 +32,35 @@
 # Note: You may not engage in multiple transactions simultaneously (i.e., you must sell the stock before you buy again).
 
 
+# def maxProfit(prices):
+#     if len(prices) < 2:
+#         return 0
 
-def maxProfit(prices):
-    if len(prices) < 2:
-        return 0
+#     n = len(prices)
 
-    n = len(prices)
+#     # Initialize the arrays
+#     buy = [0] * n
+#     sell = [0] * n
+#     cooldown = [0] * n
 
-    # Initialize the arrays
-    buy = [0] * n
-    sell = [0] * n
-    cooldown = [0] * n
+#     # Base case
+#     buy[0] = -prices[0]
 
-    # Base case
-    buy[0] = -prices[0]
+#     # Fill in the arrays
+#     for i in range(1, n):
+#         cooldown[i] = max(cooldown[i - 1], sell[i - 1])
+#         buy[i] = max(buy[i - 1], cooldown[i - 1] - prices[i])
+#         sell[i] = buy[i - 1] + prices[i]
 
-    # Fill in the arrays
-    for i in range(1, n):
-        cooldown[i] = max(cooldown[i - 1], sell[i - 1])
-        buy[i] = max(buy[i - 1], cooldown[i - 1] - prices[i])
-        sell[i] = buy[i - 1] + prices[i]
+#     # The maximum profit is the maximum of the last day's sell and cooldown
+#     return max(sell[n - 1], cooldown[n - 1])
 
-    # The maximum profit is the maximum of the last day's sell and cooldown
-    return max(sell[n - 1], cooldown[n - 1])
+# # Example usage
+# prices1 = [1, 2, 3, 0, 2]
+# print(maxProfit(prices1))  # Output: 3
 
-# Example usage
-prices1 = [1, 2, 3, 0, 2]
-print(maxProfit(prices1))  # Output: 3
-
-prices2 = [1]
-print(maxProfit(prices2))  # Output: 0
+# prices2 = [1]
+# print(maxProfit(prices2))  # Output: 0
 
 
 # def intersection(nums1: list[int], nums2: list[int]) -> list[int]:
