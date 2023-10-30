@@ -1,27 +1,83 @@
-import math 
-pos = [0, 0]
+def strtoint(i, a):
+    print(int(i) + int(a))
 
-moves = input().split(" ")
+strtoint("3","6")
 
-for i, v in enumerate(moves):
-    if v[0] == "U":
-        pos[0] += int(moves[i + 1])
-    elif v[0] == "D":
-        pos[0] -= int(moves[i + 1])
-
-    elif v[0] == "L":
-        pos[1] -= int(moves[i + 1])
-    elif v[0] == "R":
-        pos[1] += int(moves[i + 1])
-
-dis = round(math.sqrt(pos[0] **2 + pos[1] **2))
-print("dis is", dis)
+# def inttostr(i):
+#     print(str(i))
+#     return i
 
 
+# inttostr(5)
 
-print(moves)
-print(pos)
+# class Person:
+#     name = "person"
+#     def __init__(slef, name = None):
+#         slef.name = name
 
+
+# jeffrey = Person("Jeffrey")
+# print("%s name is %s" % (Person.name, jeffrey.name))
+
+# nico = Person()
+# nico.name = "Nico"
+# print("%s name is %s" % (Person.name, nico.name))
+
+
+# from pprint import pformat
+
+# # Assuming int_dict is a dictionary
+# int_dict = dict(int.__dict__)
+
+# # Convert dictionary to a formatted string
+# int_dict_str = pformat(int_dict, indent=4)
+
+# # Print the result
+# print(int_dict_str)
+
+
+# js = json.dumps(int_dict, indent=4)
+
+# print(js)
+
+# str = "New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3"
+
+# str = sorted(str.split(" "), key=lambda x:x)
+
+# ans = {x:str.count(x) for x in str}
+
+# lis = [f'{word}:{count}' for word, count in ans.items()]
+
+# # print(lis)
+
+# output = ' | '.join(lis)
+# print(output)
+
+# print(str)
+
+
+# import math
+# pos = [0, 0]
+
+# moves = input().split(" ")
+
+# for i, v in enumerate(moves):
+#     if v[0] == "U":
+#         pos[0] += int(moves[i + 1])
+#     elif v[0] == "D":
+#         pos[0] -= int(moves[i + 1])
+
+#     elif v[0] == "L":
+#         pos[1] -= int(moves[i + 1])
+#     elif v[0] == "R":
+#         pos[1] += int(moves[i + 1])
+
+# dis = round(math.sqrt(pos[0] **2 + pos[1] **2))
+# print("dis is", dis)
+
+
+# print(moves)
+# print(pos)
 
 
 # You are given an array prices where prices[i] is the price of a given stock on the ith day.
