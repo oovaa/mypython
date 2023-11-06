@@ -1,7 +1,105 @@
-def strtoint(i, a):
-    print(int(i) + int(a))
+def firstUniqChar(s: str) -> int:
+    d = {x: s.count(x) for x in s}
+    if list(d.values()).count(1) == 0:
+        return -1
+    else:
+        d.values().index(1)
 
-strtoint("3","6")
+
+s = "leetcode"
+print(firstUniqChar(s))
+
+
+# class ListNode:
+#     def __init__(self, value=0, next=None):
+#         self.value = value
+#         self.next = next
+
+
+# def getIntersectionNode(headA: ListNode, headB: ListNode):
+#     while headA and headB:
+#         if headB is headA:
+#             return headA
+#     headA = headA.next
+#     headB = headB.next
+
+
+# def create_linked_list(values):
+#     if not values:
+#         return None
+#     head = ListNode(values[0])
+#     current = head
+#     for value in values[1:]:
+#         current.next = ListNode(value)
+#         current = current.next
+#     return head
+
+
+# # Test Case 1: Intersected lists
+# listA = create_linked_list([4, 1, 8, 4, 5])
+# listB = create_linked_list([5, 6, 1, 8, 4, 5])
+# intersection_node = ListNode(8, create_linked_list([4, 5]))
+
+# # Connecting lists at the intersection point
+# listA.next.next.next.next.next = intersection_node
+# listB.next.next.next = intersection_node
+
+# intersectVal = 8
+# skipA = 2
+# skipB = 3
+
+# # Expected Output: Intersected at '8'
+# print(intersection_node.value)
+
+# # Test Case 2: Intersected lists at a different node
+# listA = create_linked_list([1, 9, 1, 2, 4])
+# listB = create_linked_list([3, 2, 4])
+# intersection_node = ListNode(2, create_linked_list([4]))
+
+# # Connecting lists at the intersection point
+# listA.next.next.next.next.next = intersection_node
+# listB.next = intersection_node
+
+# intersectVal = 2
+# skipA = 3
+# skipB = 1
+
+# # Expected Output: Intersected at '2'
+# print(intersection_node.value)
+
+# # Test Case 3: Lists without intersection
+# listA = create_linked_list([2, 6, 4])
+# listB = create_linked_list([1, 5])
+
+# intersectVal = 0
+# skipA = 3
+# skipB = 2
+
+# # Expected Output: No intersection
+# print("No intersection")
+
+# def isPalindrome(s: str) -> bool:
+#     cleaned = "".join(x.lower() for x in s if x.isalpha() or x.isnumeric())
+#     if not cleaned:
+#         return True
+
+#     i, j = 0, len(cleaned) - 1
+#     while i <= len(cleaned) // 2:
+#         print(cleaned[i], cleaned[j])
+#         if cleaned[i] != cleaned[j]:
+#             return False
+#         i += 1
+#         j -= 1
+#     return True
+
+
+# s = "0P"
+# print(isPalindrome(s))
+
+# def strtoint(i, a):
+#     print(int(i) + int(a))
+
+# strtoint("3","6")
 
 # def inttostr(i):
 #     print(str(i))
