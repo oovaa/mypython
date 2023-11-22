@@ -1,0 +1,38 @@
++---------------------------------+
+|             Library             |
++---------------------------------+
+| - books: List[Book]             |
+| - members: List[Member]          |
++---------------------------------+
+| + add_book(book: Book): None    |
+| + remove_book(book: Book): None |
+| + add_member(member: Member): None|
+| + remove_member(member: Member): None|
+| + display_books(): None         |
+| + display_members(): None       |
++---------------------------------+
+
++-------------------------------+
+|             Book              |
++-------------------------------+
+| - title: str                  |
+| - author: str                 |
+| - ISBN: str                   |
++-------------------------------+
+| + get_title(): str            |
+| + get_author(): str           |
+| + get_ISBN(): str             |
+| + display_info(): None        |
++-------------------------------+
+
++-------------------------------+
+|            Member             |
++-------------------------------+
+| - member_id: str              |
+| - name: str                   |
+| - books_checked_out: List[Book]|
++-------------------------------+
+| + check_out_book(book: Book): None|
+| + return_book(book: Book): None   |
+| + display_info(): None           |
++-------------------------------+
