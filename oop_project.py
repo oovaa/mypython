@@ -18,7 +18,7 @@ class Book:
         return self.ISBN
 
     def __str__(self) -> str:
-        return self.name
+        return self.title
 
     def displat_info(self):
         string = "title: {}\nAuthor: {}\nISBN: {}".format(
@@ -38,7 +38,10 @@ class Members:
         self.checked_out.append(book)
 
     def return_book(self, book: Book):
-        self.checked_out.pop(book)
+        self.checked_out.remove(book)
+
+    def __str__(self) -> str:
+        return self.name
 
     def display_info(self):
         checked_out_books = [book.title for book in self.checked_out]
