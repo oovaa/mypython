@@ -1,0 +1,35 @@
++------------------+        +----------------+        +-----------------+
+|    Customer      |        |    Product     |        |      Order      |
++------------------+        +----------------+        +-----------------+
+| - customer_id    |        | - product_id    |        | - order_id      |
+| - name           |        | - name           |        | - customer      |
+| - email          |        | - price          |        | - products      |
+| - address        |        | - quantity_avail|        | - total_price   |
++------------------+        +----------------+        +-----------------+
+| + place_order()  |        | + check_availability() | | + calculate_total_price() |
+| + view_order_history() |  | + update_quantity()     | | + add_product()           |
++------------------+        +----------------+        | + remove_product()        |
+                                                        +-----------------+
+                    |                                       |
+                    |                                       |
+                    v                                       v
+                +------------+                        +--------------+
+                |  Payment   |                        | ShoppingCart |
+                +------------+                        +--------------+
+                | - payment_id|                        | - customer   |
+                | - order      |                        | - products   |
+                | - payment_status |                     +--------------+
+                | - payment_amount |                     | + add_to_cart()         |
+                | + process_payment() |                  | + remove_from_cart()    |
+                | + refund_payment()  |                  | + view_cart()           |
+                +------------+                         +--------------+
+                                                         ^
+                                                         |
+                                                    +---------+
+                                                    | Inventory|
+                                                    +---------+
+                                                    | - products|
+                                                    | + add_product()    |
+                                                    | + remove_product() |
+                                                    | + view_inventory() |
+                                                    +-------------------+
