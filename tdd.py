@@ -2,18 +2,17 @@ import string
 import unittest
 
 
-def encrypt(msg):
+def encrypt(msg, by=1):
     abc = string.ascii_letters + string.punctuation + string.digits + " "
-    emsg = "".join(
-        abc[abc.find(x) + 1] if len(abc) > (abc.find(x) + 1) else abc[0]
-        for i, x in enumerate(msg)
-    )
+    emsg = "".join(abc[(abc.find(x) + by) % len(abc)] for x in msg)
+
     return emsg
 
 
 class TestEn(unittest.TestCase):
     def setUp(self):
-        self.msg = "omar abdo"
+        self.msg = "banana"
+        self.by = -8
 
     def test_inputExists(self):
         self.assertIsNotNone(self.msg)
@@ -41,11 +40,10 @@ class TestEn(unittest.TestCase):
 
     def test_ShiftedCipher(self):
         abc = string.ascii_letters + string.punctuation + string.digits + " "
-        emsg = "".join(
-            abc[abc.find(x) + 1] if len(abc) > (abc.find(x) + 1) else abc[0]
-            for i, x in enumerate(self.msg)
-        )
-        self.assertEqual(encrypt(self.msg), emsg)
+        emsg = "".join(abc[(abc.find(x) + self.by) % len(abc)] for x in self.msg)
+        print(emsg)
+
+        self.assertEqual(encrypt(self.msg, self.by), emsg)
 
 
 if __name__ == "__main__":
