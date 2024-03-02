@@ -1,3 +1,4 @@
+import json
 import requests
 from bs4 import BeautifulSoup
 
@@ -27,26 +28,17 @@ soup = BeautifulSoup(login_page_response.content, 'html.parser')
 # Get the CSRF token
 csrf_token = soup.find('meta', {'name': 'csrf-token'})['content']
 
-# Include the CSRF token in the login data
+# Include the CSRF token in the login datao
 login_data['authenticity_token'] = csrf_token
 
 # Now you can send the POST request with the login data
-login_response = session.post(login_url, data=login_data, allow_redirects=True)
+login_response = session.post(login_url, data=login_data, allow_redirects=True, headers={
+                              'Referer': 'https://intranet.alxswe.com/'})
 # Check if login was successful (you may need to customize this based on the website's response)
 if login_response.ok:
     # print("Login successful")
 
-    print(login_response.content.decode('UTF-8'))
+    respond = session.get('https://intranet.alxswe.com')
 
-    # Now, parse the HTML content
-    soup = BeautifulSoup(login_response.content, 'html.parser')
-
-    # Check if the logout link is present
-    logout_link = soup.find('a', href='/auth/sign_out')
-
-    if logout_link:
-        print("You are logged in!")
-    else:
-        print("You are not logged in.")
-else:
-    print(f"Login failed with status code {login_response.status_code}")
+    # print(respond.content.decode('UTF-8'))
+    json.dump('alx.json', session.cookies)
