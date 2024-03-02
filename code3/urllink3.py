@@ -5,7 +5,9 @@
 # http://www.py4e.com/code3/bs4.zip
 # and unzip it in the same directory as this file
 
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 from bs4 import BeautifulSoup
 import ssl
 
@@ -20,8 +22,8 @@ url = input('Enter - ')
 todo.append(url)
 count = int(input('How many to retrieve - '))
 
-while len(todo) > 0 and count > 0 :
-    print("====== To Retrieve:",count, "Queue Length:", len(todo))
+while len(todo) > 0 and count > 0:
+    print("====== To Retrieve:", count, "Queue Length:", len(todo))
     url = todo.pop()
     count = count - 1
 

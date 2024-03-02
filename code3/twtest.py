@@ -1,4 +1,6 @@
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 from twurl import augment
 import ssl
 
@@ -19,6 +21,6 @@ connection = urllib.request.urlopen(url, context=ctx)
 data = connection.read()
 print(data)
 
-print ('======================================')
+print('======================================')
 headers = dict(connection.getheaders())
 print(headers)

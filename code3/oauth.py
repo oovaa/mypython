@@ -23,7 +23,9 @@ THE SOFTWARE.
 """
 
 import cgi
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import time
 import random
 import urllib.parse
@@ -37,6 +39,7 @@ SIGNATURE_METHOD = 'PLAINTEXT'
 
 class OAuthError(RuntimeError):
     """Generic exception class."""
+
     def __init__(self, message='OAuth error occured.'):
         self.mymessage = message
 
@@ -148,7 +151,8 @@ class OAuthRequest(object):
         try:
             return self.parameters[parameter]
         except:
-            if parameter == "oauth_token": return None
+            if parameter == "oauth_token":
+                return None
             raise OAuthError('Parameter not found: %s' % parameter)
 
     def _get_timestamp_nonce(self):
@@ -314,7 +318,8 @@ class OAuthRequest(object):
             # Split key-value.
             param_parts = param.split('=', 1)
             # Remove quotes and unescape the value.
-            params[param_parts[0]] = urllib.parse.unquote(param_parts[1].strip('\"'))
+            params[param_parts[0]] = urllib.parse.unquote(
+                param_parts[1].strip('\"'))
         return params
     _split_header = staticmethod(_split_header)
 
@@ -420,7 +425,8 @@ class OAuthServer(object):
             # Get the signature method object.
             signature_method = self.signature_methods[signature_method]
         except:
-            signature_method_names = ', '.join(list(self.signature_methods.keys()))
+            signature_method_names = ', '.join(
+                list(self.signature_methods.keys()))
             raise OAuthError('Signature method %s not supported try one of the'
                              ' following: %s' %
                              (signature_method, signature_method_names))
@@ -460,7 +466,8 @@ class OAuthServer(object):
                 oauth_request, consumer, token)
             raise OAuthError('Invalid signature. Expected signature base '
                              'string: %s' % base)
-        built = signature_method.build_signature(oauth_request, consumer, token)
+        built = signature_method.build_signature(
+            oauth_request, consumer, token)
 
     def _check_timestamp(self, timestamp):
         """Verify that timestamp is recentish."""
@@ -537,6 +544,7 @@ class OAuthDataStore(object):
 
 class OAuthSignatureMethod(object):
     """A strategy class that implements a signature method."""
+
     def get_name(self):
         """-> str."""
         raise NotImplementedError

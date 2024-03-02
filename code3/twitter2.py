@@ -1,4 +1,6 @@
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import twurl
 import json
 import ssl
@@ -16,7 +18,8 @@ ctx.verify_mode = ssl.CERT_NONE
 while True:
     print('')
     acct = input('Enter Twitter Account:')
-    if (len(acct) < 1): break
+    if (len(acct) < 1):
+        break
     url = twurl.augment(TWITTER_URL,
                         {'screen_name': acct, 'count': '5'})
     print('Retrieving', url)

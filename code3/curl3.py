@@ -1,5 +1,7 @@
 import os
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 
 print('Please enter a URL like http://data.pr4e.org/cover3.jpg')
 urlstr = input().strip()
@@ -20,7 +22,8 @@ fhand = open(fname, 'wb')
 size = 0
 while True:
     info = img.read(100000)
-    if len(info) < 1: break
+    if len(info) < 1:
+        break
     size = size + len(info)
     fhand.write(info)
 

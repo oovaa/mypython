@@ -1,5 +1,7 @@
 # Search for link values within URL input
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import re
 import ssl
 

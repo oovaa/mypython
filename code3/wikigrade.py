@@ -4,7 +4,9 @@
 
 import string
 import sqlite3
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 
@@ -47,6 +49,7 @@ def tinyTable(url):
     conn.commit()
     return data
 
+
 cururl = 'https://ctools.umich.edu/portal/tool/27500dea-c105-4f7b-a195-3c89536a64b7?pageName=%2Fsite%2Ff57681b8-6db9-46cf-aad1-3a0bdd621138%2Fhome&action=view&panel=Main&realm=%2Fsite%2Ff57681b8-6db9-46cf-aad1-3a0bdd621138'
 prefix = 'https://ctools.umich.edu/portal/tool/27500dea-c105-4f7b-a195-3c89536a64b7'
 
@@ -59,7 +62,8 @@ postcounts = sash()
 while len(urls) > 0:
     print('=== URLS Yet To Retrieve:', len(urls))
     cururl = urls.pop()
-    if cururl in visited: continue
+    if cururl in visited:
+        continue
     print('RETRIEVING', cururl)
     data = tinyTable(cururl)
     visited.append(cururl)
@@ -69,11 +73,14 @@ while len(urls) > 0:
     for tag in tags:
         print(tag)
         url = tag.get('href', None)
-        if url is None: continue
+        if url is None:
+            continue
         # Don't follow absolute urls
-        if not url.startswith(prefix): continue
+        if not url.startswith(prefix):
+            continue
         newurl = urllib.basejoin(cururl, url)
-        if newurl in visited: continue
+        if newurl in visited:
+            continue
         # print 'APPENDING', newurl
         if newurl.find('action=view') > 0 or newurl.find('action=history') > 0:
             urls.append(newurl)
