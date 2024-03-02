@@ -38,7 +38,11 @@ login_response = session.post(login_url, data=login_data, allow_redirects=True, 
 if login_response.ok:
     # print("Login successful")
 
-    respond = session.get('https://intranet.alxswe.com')
+    response = session.get('https://intranet.alxswe.com')
 
-    # print(respond.content.decode('UTF-8'))
-    json.dump('alx.json', session.cookies)
+    # Get the content of the response
+    content = response.content
+
+    # Write the content to a file
+    with open('alx.html', 'wb') as f:
+        f.write(content)
