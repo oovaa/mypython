@@ -40,7 +40,8 @@ class TestEn(unittest.TestCase):
 
     def test_ShiftedCipher(self):
         abc = string.ascii_letters + string.punctuation + string.digits + " "
-        emsg = "".join(abc[(abc.find(x) + self.by) % len(abc)] for x in self.msg)
+        emsg = "".join(abc[(abc.find(x) + self.by) % len(abc)]
+                       for x in self.msg)
         print(emsg)
 
         self.assertEqual(encrypt(self.msg, self.by), emsg)

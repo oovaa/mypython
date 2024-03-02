@@ -26,4 +26,3 @@ c.execute(
 
 con.commit()
 con.close()
-    

@@ -15,7 +15,7 @@ def largestTimeFromDigits(arr: list[int]) -> str:
         if i > m and i < 3:
             m = i
     arr.remove(m)
-    m2 =0
+    m2 = 0
     for i in arr:
         if i > m2 and i <= 9:
             m2 = i
@@ -28,7 +28,7 @@ def largestTimeFromDigits(arr: list[int]) -> str:
 
 def test_latest_time():
     # Example test cases
-    
+
     assert largestTimeFromDigits([1, 2, 3, 4]) == "23:41"
     assert largestTimeFromDigits([5, 5, 5, 5]) == ""
 

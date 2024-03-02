@@ -1,7 +1,5 @@
 
 
-
-
 import math
 import os
 import random
@@ -12,20 +10,22 @@ import sys
 class Car:
     maxspeed = None
     unit = None
+
     def __init__(self, maxspeed, unit):
         self.maxspeed = maxspeed
         self.unit = unit
-        print('Car with them maximum speed of',str(maxspeed),unit)
+        print('Car with them maximum speed of', str(maxspeed), unit)
 
 
 class Boat:
- maximumspeed = None
- def __init__(self,maximumspeed):
-     self.maximumspeed = maximumspeed
-     print('Boat with them maximum speed of',str(maximumspeed),'knots')
-     
-     
-Car1 = Car(120,'km/h')
+    maximumspeed = None
+
+    def __init__(self, maximumspeed):
+        self.maximumspeed = maximumspeed
+        print('Boat with them maximum speed of', str(maximumspeed), 'knots')
+
+
+Car1 = Car(120, 'km/h')
 b1 = Boat(120)
 
 
@@ -48,16 +48,6 @@ b1 = Boat(120)
 #     fptr.close()
 
 
-
-
-
-
-
-
-
-
-
-
 # import math
 # import os
 # import random
@@ -71,7 +61,7 @@ b1 = Boat(120)
 #  for i in args:
 #      sum += i
 #      print(args.index(i)+1)
-    
+
 #  return sum/len(args)
 
 # print(avg(2,5))
