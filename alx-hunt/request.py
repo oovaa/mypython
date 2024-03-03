@@ -40,7 +40,7 @@ if login_response.ok:
 
     response = session.get('https://intranet.alxswe.com')
 
-    project_page = session.get('https://intranet.alxswe.com/projects/299')
+    # project_page = session.get('https://intranet.alxswe.com/projects/299')
 
     # print(project_page.content.decode("UTF-8"))
 
@@ -52,7 +52,16 @@ if login_response.ok:
         if 'current' in pure_projects_ids:
             pure_projects_ids.remove('current')
 
-        print(pure_projects_ids)
+    # print(pure_projects_ids)
+
+    # i could access every project site
+    for projict_id in pure_projects_ids:
+        respond = requests.get(
+            f'https://intranet.alxswe.com/projects/{projict_id}')
+
+        print(respond)
+
+# TODO: scrap the project infos
 
 # ----------------- get projects ids and store it in json file ---------------
     # projects_page = session.get('https://intranet.alxswe.com/projects/current')
