@@ -1,44 +1,65 @@
 import json
+import os
 import requests
 import re
 from bs4 import BeautifulSoup
 
-# Your login credentials
-with open('data.sec', 'r') as data:
-    email = data.readline()
-    password = data.readline().strip()
-
-
-# URL for login
-login_url = 'https://intranet.alxswe.com/auth/sign_in'
-
-# Session to persist the login session
 session = requests.Session()
 
-# Perform login
-login_data = {
-    'user[email]': email,
-    'user[password]': password
-}
-# Get the login page
-login_page_response = session.get(login_url)
 
-# Parse the HTML content
-soup = BeautifulSoup(login_page_response.content, 'html.parser')
+def check_or_create_user_data():
 
-# Get the CSRF token
-csrf_token = soup.find('meta', {'name': 'csrf-token'})['content']
+    file_path = 'data.sec'
+    # Check if file exists
+    if not os.path.exists(file_path) or os.path.getsize(file_path) == 0:
+        # If not, prompt the user to enter their email and password
+        email = input('Please enter your email: ')
+        password = input('Please enter your password: ')
 
-# Include the CSRF token in the login datao
-login_data['authenticity_token'] = csrf_token
+        # Store the email and password in the file
+        with open(file_path, 'w') as file:
+            file.write(email + '\n')
+            file.write(password + '\n')
 
-# Now you can send the POST request with the login data
-login_response = session.post(login_url, data=login_data, allow_redirects=True, headers={
-                              'Referer': 'https://intranet.alxswe.com/'})
-# Check if login was successful (you may need to customize this based on the website's response)
+        print(
+            '\033[91m' + 'user_data stored in data.sec. Do not share this file.' + '\033[0m')
+
+    # If file exists, read the user_data
+    with open(file_path, 'r') as file:
+        email = file.readline().strip()
+        password = file.readline().strip()
+
+    return email, password
 
 
+def log_into_alx():
+    # URL for login
+    login_url = 'https://intranet.alxswe.com/auth/sign_in'
 
+    # Session to persist the login session
+    email, password = check_or_create_user_data()
+    # Perform login
+    login_data = {
+        'user[email]': email,
+        'user[password]': password
+    }
+    # Get the login page
+    login_page_response = session.get(login_url)
+
+    # Parse the HTML content
+    soup = BeautifulSoup(login_page_response.content, 'html.parser')
+
+    # Get the CSRF token
+    csrf_token = soup.find('meta', {'name': 'csrf-token'})['content']
+
+    # Include the CSRF token in the login datao
+    login_data['authenticity_token'] = csrf_token
+
+    # Now you can send the POST request with the login data
+    login_response = session.post(login_url, data=login_data, allow_redirects=True, headers={
+        'Referer': 'https://intranet.alxswe.com/'})
+    return login_response
+    # Check if login was successful (you may need to customize this based on the website's response)
 
 
 # fix projects names and remove and wanted characters
@@ -47,11 +68,16 @@ def sanitize_project_name(project_name):
     sanitized_name = re.sub(r'[^\w\s.-]', '', project_name)
     return sanitized_name.strip()
 
-if login_response.ok:
 
-# TODO: scrap the project infos
+login_response = log_into_alx()
 
-# ----------------- get projects ids and store it in json file ---------------
+print(login_response)
+
+
+def get_project_ids_to_alx_json():
+    # TODO: scrap the project infos
+
+    # ----------------- get projects ids and store it in json file ---------------
     response = session.get('https://intranet.alxswe.com/projects/current')
     # Get the content of the response
     content = response.content
@@ -81,6 +107,22 @@ if login_response.ok:
 # ----------------- get projects ids and store it in json file ---------------
 
 
+def check_json_file(file_path):
+    # Check if file exists
+    if not os.path.exists(file_path):
+        return False
+
+    # Check if file has valid JSON data
+    try:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            # Check if data is a dictionary (replace this with your own validation if needed)
+            if not isinstance(data, dict):
+                return False
+    except json.JSONDecodeError:
+        return False
+
+    return True
 
     # print("Login successful")
 
@@ -95,9 +137,9 @@ if login_response.ok:
     #     ids_from_js = json.load(alxjs)
     #     pure_projects_ids = list(ids_from_js.keys())
 
-        # Remove 'current' from the list
-        # if 'current' in pure_projects_ids:
-        #     pure_projects_ids.remove('current')
+    # Remove 'current' from the list
+    # if 'current' in pure_projects_ids:
+    #     pure_projects_ids.remove('current')
 
     # print(pure_projects_ids)
 
